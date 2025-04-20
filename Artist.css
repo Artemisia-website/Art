@@ -523,15 +523,15 @@ body.menu-open {
     }
 }
 
-@media (max-width: 481px) {
+@media (max-width: 600px) {
     .banner {
-        height: 240px;
+        height: 200px;
     }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 390px) {
     .banner {
-        height: 100px;
+        height: 140px;
     }
 }
 

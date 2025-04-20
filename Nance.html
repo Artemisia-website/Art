@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artemisia - Nance</title>
+    <link rel="icon" href="https://i.postimg.cc/zXXhVbHv/11.png" type="image/x-icon">
+    <link rel="stylesheet" href="../Prem.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <img src="https://i.postimg.cc/hjBzgfqS/1.png" alt="Логотип" class="logo">
+        </div>
+    </header>
+
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <div class="drawer" id="drawer">
+        <ul class="menu">
+            <li><a href="../index.html">
+                    <img src="https://i.postimg.cc/6p8Gfk0N/home.png" alt="Главная">
+                    Главная
+                </a>
+            </li>
+
+            <li>
+                <a href="Artist.html">
+                    <img src="https://i.postimg.cc/MGRMh1NP/man-14816778.png" alt="Художники">
+                    Художники
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="has-submenu" onclick="toggleSubmenu(event)">
+                    <img src="https://i.postimg.cc/85mFCN1L/mobile-shopping.png" alt="">
+                    Услуги
+                </a>
+
+                <ul class="submenu">
+                    <li>
+                        <a href="Services.html#Commission" class="submenu-link" onclick="openTabByLink('Commission')">
+                            COMMISSION ART
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Services.html#Yunchy" class="submenu-link" onclick="openTabByLink('Yunchy')">
+                            YCH
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Services.html#art" class="submenu-link" onclick="openTabByLink('art')">
+                            ADOPT
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="#">
+                    <img src="https://i.postimg.cc/bYRbyHJ4/draw.png" alt="">
+                    Комиксы
+                </a>
+            </li>
+
+            <li class="separator-menu"></li>
+
+            <li><a href="AboutUs.html#about-site">
+                    Подробности о сайте
+                </a>
+            </li>
+
+            <li><a href="AboutUs.html#publish-work">
+                    Опубликовать работу
+                </a>
+            </li>
+
+            <li><a href="AboutUs.html#guarantees">
+                    Гаранты
+                </a>
+            </li>
+
+            <li class="separator-menu"></li>
+
+            <li>
+                <a href="#" class="has-submenu" onclick="toggleSubmenu(event)">
+                    <img src="https://i.postimg.cc/sDXB3kbZ/image.png" alt="">
+                    Документы
+                </a>
+                <ul class="submenu">
+                    <li><a href="Document.html#user-agreement" class="submenu-link">Соглашение</a></li>
+                    <li><a href="Document.html#usage-rules" class="submenu-link">Правила использования</a></li>
+                    <li><a href="Document.html#guaranteed-deals" class="submenu-link">Гарантийные сделки</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Карточка профиля -->
+    <div class="profile-card">
+        <div class="profile-header">
+            <div class="header-overlay"></div>
+        </div>
+        <div class="profile-content">
+            <div class="avatar-container">
+                <div class="avatar-border"></div>
+                <img src="https://i.postimg.cc/V6x7z9kJ/photo-5276041150890895665-x-1.jpg" alt="Аватар Nance"
+                    class="avatar">
+            </div>
+            <div class="profile-info">
+                <h1 class="profile-name">Nance</h1>
+                <a href="https://t.me/enhchx" class="profile-link">
+                    @enhchx
+                    <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram" class="profile-link-icon">
+                </a>
+                <p class="profile-bio">Стиль: Семириализм</p>
+
+                <div class="profile-badges">
+                    <span class="badge verified"><i class="fas fa-check-circle"></i> Проверенный художник</span>
+                    <span class="badge experience"><i class="fas fa-hourglass-half"></i> 3 года опыта</span>
+                    <span class="badge pro"><i class="fas fa-star"></i> Prem Artist</span>
+                </div>
+
+                <div class="social-links">
+                    <!-- ВКонтакте -->
+                    <a href=" https://vk.com/nensn5 " class="social-link" target="_blank" rel="noopener noreferrer"
+                        aria-label="ВКонтакте">
+                        <img src="https://i.postimg.cc/cHhQbQ8q/image.png" alt="VK" width="32" height="32"
+                            loading="lazy" class="social-icon">
+                    </a>
+
+                    <!-- Telegram -->
+                    <a href=" https://t.me/nensn5 " class="social-link" target="_blank" rel="noopener noreferrer"
+                        aria-label="Telegram">
+                        <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram" width="32" height="32"
+                            loading="lazy" class="social-icon">
+                    </a>
+
+                    <!-- YouTube -->
+                    <a href=" https://www.youtube.com/@nensn5 " class="social-link" target="_blank"
+                        rel="noopener noreferrer" aria-label="YouTube">
+                        <img src="https://i.postimg.cc/fW5tnzqN/youtube-1.png" alt="YouTube" width="32" height="32"
+                            loading="lazy" class="social-icon">
+                    </a>
+
+                    <!-- Пинтерест -->
+                    <a href="https://pin.it/2DbTWOypO" class="social-link" target="_blank" rel="noopener noreferrer"
+                        aria-label="YouTube">
+                        <img src="https://i.postimg.cc/T3B57t75/icons8-pinterest-48.png" alt="YouTube" width="32"
+                            height="32" loading="lazy" class="social-icon">
+                    </a>
+
+                    <!-- ТТ -->
+                    <a href="https://www.tiktok.com/@nensn5_?_r=1&_d=eh83e1547be7il&sec_uid=MS4wLjABAAAALrSTNSIkiV3xErVnI8sQb01Iq5GX5Wgzt9JG01gcoeR26mXUpDDsdnpmqAcroE_f&share_author_id=7400529780627833861&sharer_language=ru&source=h5_m&u_code=efg187216geel8&ug_btm=b8727,b0&social_share_type=4&utm_source=copy&sec_user_id=MS4wLjABAAAALrSTNSIkiV3xErVnI8sQb01Iq5GX5Wgzt9JG01gcoeR26mXUpDDsdnpmqAcroE_f&tt_from=copy&utm_medium=ios&utm_campaign=client_share&enable_checksum=1&user_id=7400529780627833861&share_link_id=E15C10FC-48FE-40F5-BA15-A724E6FDC3CC&share_app_id=1233"
+                        class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <img src="https://i.postimg.cc/sD6hSj5c/free-icon-video-13670382.png" alt="YouTube" width="32"
+                            height="32" loading="lazy" class="social-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs section -->
+    <div class="tabs-container">
+        <div class="tabs-header">
+            <button class="tab-btn active" onclick="openTab(event, 'tab1')">Работы</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab2')">Обо мне</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab3')">Услуги</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab4')">Отзывы</button>
+        </div>
+
+        <div id="tab1" class="tab-content active">
+            <div class="works-header">
+                <h3>
+                    <i class="fas fa-palette"></i> Мои работы
+                </h3>
+                <div class="archive-link">
+                    <a href="https://vk.com/nensn5" target="_blank" class="archive-btn">
+                        <div class="archive-icon">
+                            <img src="https://i.postimg.cc/cHhQbQ8q/image.png" alt="VK">
+                        </div>
+                        <div class="archive-text">
+                            <span class="archive-title">Архив всех работ</span>
+                            <span class="archive-subtitle">Полная коллекция в VK</span>
+                        </div>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <p class="gallery-description">Здесь представлены мои последние работы. Кликните на изображение для
+                просмотра в полном размере.</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openModal('https://i.postimg.cc/wM5kHSrr/image.png', 'Работа 1')">
+                    <img src="https://i.postimg.cc/wM5kHSrr/image.png" alt="Работа 1">
+                </div>
+                <div class="gallery-item"
+                    onclick="openModal('https://i.postimg.cc/L4PCNWxL/Vfx-Kt-YPVQM.jpg', 'Работа 2')">
+                    <img src="https://i.postimg.cc/L4PCNWxL/Vfx-Kt-YPVQM.jpg" alt="Работа 2">
+                </div>
+                <div class="gallery-item"
+                    onclick="openModal('https://i.postimg.cc/CLVvt42t/Ad-I8-TXcrs.jpg', 'Работа 3')">
+                    <img src="https://i.postimg.cc/CLVvt42t/Ad-I8-TXcrs.jpg" alt="Работа 3">
+                </div>
+                <div class="gallery-item"
+                    onclick="openModal('https://i.postimg.cc/zGzxDG8F/photo-5424785192725377471-y-copy.jpg', 'Работа 4')">
+                    <img src="https://i.postimg.cc/zGzxDG8F/photo-5424785192725377471-y-copy.jpg" alt="Работа 4">
+                </div>
+                <div class="gallery-item"
+                    onclick="openModal('https://i.postimg.cc/pdyk8c99/photo-5424785192725377472-y.jpg', 'Работа 5')">
+                    <img src="https://i.postimg.cc/pdyk8c99/photo-5424785192725377472-y.jpg" alt="Работа 5">
+                </div>
+                <div class="gallery-item"
+                    onclick="openModal('https://i.postimg.cc/P5S2Cnqs/photo-5424785192725377473-y.jpg', 'Работа 6')">
+                    <img src="https://i.postimg.cc/P5S2Cnqs/photo-5424785192725377473-y.jpg" alt="Работа 6">
+                </div>
+                <div class="gallery-item"
+                    onclick="openModal('https://i.postimg.cc/d0X69Rd5/photo-5424785192725377475-y.jpg', 'Работа 7')">
+                    <img src="https://i.postimg.cc/d0X69Rd5/photo-5424785192725377475-y.jpg" alt="Работа 7">
+                </div>
+                <div class="gallery-item"
+                    onclick="openModal('https://i.postimg.cc/nrf1yH37/photo-5424785192725377476-y.jpg', 'Работа 8')">
+                    <img src="https://i.postimg.cc/nrf1yH37/photo-5424785192725377476-y.jpg" alt="Работа 8">
+                </div>
+            </div>
+        </div>
+
+        <div id="tab2" class="tab-content">
+            <p><strong>🎨 Художник</strong><br>
+                Рисую в основном оригинальных персонажей и делаю гифты — как для друзей, так и для коллег. Иногда
+                балуюсь фан-артом по любимым вселенным, но душа лежит к собственным образам и историям.</p>
+
+            <p><strong>🖌 Графический дизайнер</strong><br>
+                Учусь на дизайнера, уже есть небольшой опыт в создании упаковки и стикеров — от концепта до печати.</p>
+
+            <p><strong>🎥 Видеомейкер</strong><br>
+                Снимаю развлекательные ролики на YouTube — где-то с юмором, где-то с атмосферой, но всегда с душой.</p>
+
+            <p><strong>📖 Планы</strong><br>
+                Мечтаю создать собственный комикс со своими персонажами. На данный момент имеются наработки, концепты и
+                небольшие комиксные зарисовки.</p>
+        </div>
+
+
+        <div id="tab3" class="tab-content">
+            <div class="anime-section">
+                <img src="https://i.postimg.cc/GtvXtB4q/photo-5296536193661528500-y.jpg" alt="Commission"
+                    onclick="openModal('https://i.postimg.cc/GtvXtB4q/photo-5296536193661528500-y.jpg', 'Commission')">
+                <div class="text">
+                    <h3>Commission</h3>
+                    <div class="description">
+                        Открыты комишн! Цены и условия представлены на изображении)
+                    </div>
+                    <div class="price">
+                        <span> Цена от </span> 300 ₽
+                    </div>
+                    <a href="https://t.me/enhchx" target="_blank" class="order-btn">
+                        <span>Заказать через Telegram</span>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab4" class="tab-content">
+            <h3>Отзывы</h3>
+            <p>Пока что их нет, но я их стараюсь собирать)</p>
+
+           
+           
+        </div>
+
+    </div>
+
+    <!-- Модальное окно -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" class="modal-image" src="" alt="">
+            <div id="modalCaption" class="modal-caption"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <a href="../index.html" class="footer-logo-link">
+                    <img src="https://i.postimg.cc/hjBzgfqS/1.png" alt="Artemisia" class="footer-logo">
+                </a>
+            </div>
+
+            <div class="footer-links">
+                <a href="AboutUs.html#about-site" class="footer-link">Подробности о сайте</a>
+                <a href="https://t.me/Artemisia_publication_bot" class="footer-link">Опубликовать работу</a>
+                <a href="https://t.me/Gg00Se" class="footer-link">Связь с гарантом</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="update-text">
+                Следите за обновлениями
+                <a href="https://t.me/Artemisia_website" class="update-link" target="_blank">@Artemisia</a>
+            </p>
+        </div>
+    </footer>
+
+    <div id="backToTopBtn" class="back-to-top-btn" onclick="scrollToTop()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+        </svg>
+    </div>
+
+    <script>
+        // Функции для меню и поиска
+        function toggleMenu() {
+            const drawer = document.getElementById('drawer');
+            const overlay = document.getElementById('overlay');
+            const menuIcon = document.getElementById('menuIcon');
+            const body = document.body;
+
+            // Сохраняем текущую позицию прокрутки
+            if (!body.classList.contains('menu-open')) {
+                body.style.top = `-${window.scrollY}px`;
+            }
+
+            drawer.classList.toggle('open');
+            overlay.classList.toggle('active');
+            menuIcon.classList.toggle('active');
+            body.classList.toggle('menu-open');
+
+            // Восстанавливаем позицию прокрутки при закрытии меню
+            if (!body.classList.contains('menu-open')) {
+                const scrollY = parseInt(body.style.top || '0');
+                body.style.top = '';
+                window.scrollTo(0, -scrollY);
+            }
+        }
+
+        function toggleSubmenu(event) {
+            event.preventDefault();
+            const submenu = event.currentTarget.nextElementSibling;
+            submenu.classList.toggle('active');
+            event.currentTarget.classList.toggle('active');
+        }
+
+
+
+        function removeHighlights() {
+            const highlights = document.querySelectorAll('.highlight');
+            highlights.forEach(highlight => {
+                const parent = highlight.parentNode;
+                parent.replaceChild(document.createTextNode(highlight.textContent), highlight);
+                parent.normalize();
+            });
+        }
+
+        function openTabByLink(tabId) {
+            const tab = document.getElementById(tabId);
+            if (tab) {
+                tab.style.display = 'block';
+            }
+        }
+
+        function openTab(evt, tabName) {
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('active');
+            }
+
+            const tabButtons = document.getElementsByClassName('tab-btn');
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove('active');
+            }
+
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        // Функции для модального окна галереи
+        function openModal(imageSrc, caption) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const captionText = document.getElementById('modalCaption');
+
+            modal.style.display = "flex";
+            modalImg.src = imageSrc;
+            captionText.innerHTML = caption;
+            document.body.classList.add('no-scroll');
+
+            // Сброс анимации для нового изображения
+            modalImg.classList.remove('visible');
+            setTimeout(() => {
+                modalImg.classList.add('visible');
+            }, 50);
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = "none";
+            document.body.classList.remove('no-scroll');
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        document.onkeydown = function (evt) {
+            evt = evt || window.event;
+            if (evt.key === "Escape") {
+                closeModal();
+            }
+        };
+
+        // Инициализация - открываем первую вкладку по умолчанию
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('.tab-btn').click();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const showMoreBtn = document.getElementById('showMoreBtn');
+            const additionalReviews = document.getElementById('additionalReviews');
+
+            if (showMoreBtn && additionalReviews) {
+                showMoreBtn.addEventListener('click', function () {
+                    additionalReviews.classList.toggle('expanded');
+                    this.classList.toggle('expanded');
+
+                    // Меняем текст кнопки
+                    if (additionalReviews.classList.contains('expanded')) {
+                        this.innerHTML = '<i class="fas fa-chevron-up"></i> Свернуть отзывы';
+                    } else {
+                        this.innerHTML = '<i class="fas fa-chevron-down"></i> Ещё отзывы';
+                    }
+                });
+            }
+        });
+
+        function openOrderModal(title, artist, price, telegramLink) {
+            window.open(telegramLink, '_blank');
+        }
+
+        // Back to Top Function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide back to top button on scroll
+        window.addEventListener('scroll', function () {
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+
+        // Анимация появления элементов
+        document.addEventListener('DOMContentLoaded', function () {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+
+                        // Для модальных изображений
+                        if (entry.target.classList.contains('modal-img')) {
+                            setTimeout(() => {
+                                entry.target.classList.add('visible');
+                            }, 100 * index);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Наблюдаем за всеми элементами
+            document.querySelectorAll('.profile-card, .tabs-container, .gallery-item, .archive-btn, .anime-section').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Для изображений в модалках
+            document.querySelectorAll('.modal-image').forEach((img, index) => {
+                img.classList.add('modal-img');
+                observer.observe(img);
+            });
+        });
+    </script>
+</body>
+
+</html>

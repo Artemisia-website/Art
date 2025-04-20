@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artemisia</title>
+    <link rel="icon" href="https://i.postimg.cc/zXXhVbHv/11.png" type="image/x-icon">
+    <link rel="stylesheet" href="../Rul.css">
+   
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <img src="https://i.postimg.cc/hjBzgfqS/1.png" alt="Логотип" class="logo">
+        </div>
+    </header>
+
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <div class="drawer" id="drawer">
+        <ul class="menu">
+            <li><a href="../index.html">
+                    <img src="https://i.postimg.cc/6p8Gfk0N/home.png" alt="Главная">
+                    Главная
+                </a>
+            </li>
+
+            <li>
+                <a href="Artist.html">
+                    <img src="https://i.postimg.cc/MGRMh1NP/man-14816778.png" alt="Художники">
+                    Художники
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="has-submenu" onclick="toggleSubmenu(event)">
+                    <img src="https://i.postimg.cc/85mFCN1L/mobile-shopping.png" alt="">
+                    Услуги
+                </a>
+
+                <ul class="submenu">
+                    <li>
+                        <a href="Services.html#Commission" class="submenu-link" onclick="openTabByLink('Commission')">
+                            COMMISSION ART
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Services.html#Yunchy" class="submenu-link" onclick="openTabByLink('Yunchy')">
+                            YCH
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Services.html#art" class="submenu-link" onclick="openTabByLink('art')">
+                            ADOPT
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="#">
+                    <img src="https://i.postimg.cc/bYRbyHJ4/draw.png" alt="">
+                    Комиксы
+                </a>
+            </li>
+
+            <li class="separator-menu"></li>
+
+            <li><a href="AboutUs.html#about-site">
+                    Подробности о сайте
+                </a>
+            </li>
+
+            <li><a href="AboutUs.html#publish-work">
+                    Опубликовать работу
+                </a>
+            </li>
+
+            <li><a href="AboutUs.html#guarantees">
+                    Гаранты
+                </a>
+            </li>
+
+            <li class="separator-menu"></li>
+
+            <li>
+                <a href="#" class="has-submenu" onclick="toggleSubmenu(event)">
+                    <img src="https://i.postimg.cc/sDXB3kbZ/image.png" alt="">
+                    Документы
+                </a>
+                <ul class="submenu">
+                    <li><a href="Document.html#user-agreement" class="submenu-link">Соглашение</a></li>
+                    <li><a href="Document.html#usage-rules" class="submenu-link">Правила использования</a></li>
+                    <li><a href="Document.html#guaranteed-deals" class="submenu-link">Гарантийные сделки</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Основной контент -->
+    <main class="content-container">
+        <div class="rules-container">
+            <div class="terms-header">
+                <h1></h1>
+            </div>
+
+            <div class="terms-content">
+                <!-- Подробности о сайте -->
+                <div id="about-site" class="terms-section">
+                    <h2>ПОДРОБНОСТИ О САЙТЕ</h2>
+
+                    <p>Добро пожаловать на Artemisia - на сайт, где иллюстраторы могут представить свое творчество и
+                        опыт, а также иметь возможность сотрудничать с другими ценителями искусства. Наш сайт создан для
+                        того, чтобы:</p>
+                    <ul>
+                        <li>Предоставить художникам площадку для демонстрации своих работ</li>
+                        <li>Помочь найти клиентов и заказы</li>
+                        <li>Создать сообщество единомышленников</li>
+                        <li>Обеспечить безопасные сделки между художниками и заказчиками</li>
+                    </ul>
+
+                    <p>Наша миссия: создать удобную и безопасную среду для творческих людей, где они могут развиваться,
+                        находить вдохновение и зарабатывать на своем таланте.</p>
+                </div>
+
+                <!-- Как опубликовать работу -->
+                <div id="publish-work" class="terms-section">
+                    <h2>КАК ОПУБЛИКОВАТЬ РАБОТУ</h2>
+
+                    <p>Публикация работ на Artemisia — это простой процесс, который заключается в желании поделится
+                        своим творчеством и честно сотрудничать с другими художниками.</p>
+
+                    <h4>Требования к работам</h4>
+                    <p>Перед публикацией убедитесь, что ваша работа соответствует следующим критериям:</p>
+                    <ul>
+                        <li>Является оригинальным произведением (не нарушает авторские права)</li>
+                        <li>Соответствует тематике платформы</li>
+                    </ul>
+
+                    <h4>Пошаговая инструкция</h4>
+                    <ol>
+                        <li>Напишите в телеграм в наш бот @Artemisia_publication_bot</li>
+                        <li>В боте будут расписаны пошаговые действия)</li>
+                        <li>Если вы желаете приобрести Prem, то обращайтесь к <a href="https://t.me/Gg00Se"
+                                target="_blank">@Gg00Se</a></li>
+                    </ol>
+                </div>
+
+                <!-- Гаранты -->
+                <div id="guarantees" class="terms-section">
+                    <h2>ГАРАНТЫ</h2>
+
+                    <p>Artemisia предоставляет систему гарантий для защиты как художников, так и заказчиков.</p>
+
+                    <h4>Для заказчиков:</h4>
+                    <ul>
+                        <li>Гарантия возврата — если работа не соответствует тз, вы можете вернуть средства</li>
+                        <li>Защита платежей — оплата хранится на защищенном счете до подтверждения получения работы</li>
+                    </ul>
+
+                    <h4>Для художников:</h4>
+                    <ul>
+                        <li>Гарантия оплаты — после подтверждения получения работы средства автоматически переводятся на
+                            ваш счет</li>
+                        <li>Защита от мошенничества — система проверяет платежеспособность заказчиков</li>
+                    </ul>
+
+                    <h4>Как работает система гарантий:</h4>
+                    <ol>
+                        <li>Заказчик и художник согласовывают условия работы</li>
+                        <li>Они списываются с гарантом <a href="https://t.me/Gg00Se" target="_blank">@Gg00Se</a>
+                        </li>
+                        <li>Заказчик вносит оплату на защищенный счет Artemisia</li>
+                        <li>Художник выполняет работу в оговоренные сроки</li>
+                        <li>После подтверждения получения, работа оплачивается художнику</li>
+                        <li>В случае спора гарант поможет разрешить ситуацию</li>
+                    </ol>
+
+                    <p>Среднее время ответа — 2 рабочих дня</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <a href="../index.html" class="footer-logo-link">
+                    <img src="https://i.postimg.cc/hjBzgfqS/1.png" alt="Artemisia" class="footer-logo">
+                </a>
+            </div>
+
+            <div class="footer-links">
+                <a href="AboutUs.html#about-site" class="footer-link">Подробности о сайте</a>
+                <a href="https://t.me/Artemisia_publication_bot" class="footer-link">Опубликовать работу</a>
+                <a href="https://t.me/Gg00Se" class="footer-link">Связь с гарантом</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="update-text">
+                Следите за обновлениями
+                <a href="https://t.me/Artemisia_website" class="update-link" target="_blank">@Artemisia</a>
+            </p>
+        </div>
+    </footer>
+
+    <div id="backToTopBtn" class="back-to-top-btn" onclick="scrollToTop()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" width="24px" height="24px">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+        </svg>
+    </div>
+
+    <script>
+        // Функции для меню и поиска
+        let scrollPosition = 0;
+
+        function toggleMenu() {
+            const drawer = document.getElementById('drawer');
+            const overlay = document.getElementById('overlay');
+            const menuIcon = document.getElementById('menuIcon');
+            const body = document.body;
+
+            if (!body.classList.contains('menu-open')) {
+                // Сохраняем позицию скролла
+                scrollPosition = window.pageYOffset;
+                body.style.top = `-${scrollPosition}px`;
+                body.classList.add('menu-open');
+            } else {
+                // Восстанавливаем позицию скролла
+                body.classList.remove('menu-open');
+                body.style.top = '';
+                window.scrollTo(0, scrollPosition);
+            }
+
+            drawer.classList.toggle('open');
+            overlay.classList.toggle('active');
+            menuIcon.classList.toggle('active');
+        }
+
+        function toggleSubmenu(event) {
+            // Для элементов с подменю предотвращаем переход по ссылке
+            if (event.currentTarget.classList.contains('has-submenu')) {
+                event.preventDefault();
+            }
+            const submenu = event.currentTarget.nextElementSibling;
+            submenu.classList.toggle('active');
+            event.currentTarget.classList.toggle('active');
+        }
+
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                // Закрываем меню
+                toggleMenu();
+                // Плавная прокрутка к секции
+                setTimeout(() => {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }, 300);
+            }
+        }
+
+        function toggleSearch() {
+            console.log("Поиск отключен");
+        }
+
+        // Back to Top Function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide back to top button on scroll
+        window.addEventListener('scroll', function () {
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            backToTopBtn.style.display = 'flex';
+
+            // Обработка хэша URL при загрузке страницы
+            if (window.location.hash) {
+                const hash = window.location.hash.substring(1);
+                setTimeout(() => {
+                    const element = document.getElementById(hash);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 300);
+            }
+        });
+
+        // Обработка кликов по ссылкам в меню
+        document.querySelectorAll('.menu a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                // Если это ссылка с подменю, не обрабатываем стандартное поведение
+                if (this.classList.contains('has-submenu')) {
+                    return;
+                }
+
+                // Если это ссылка на якорь на текущей странице
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const hash = this.getAttribute('href').substring(1);
+                    scrollToSection(hash);
+                }
+
+                // Для обычных ссылок меню закрывается перед переходом
+                toggleMenu();
+            });
+        });
+    </script>
+</body>
+
+</html>

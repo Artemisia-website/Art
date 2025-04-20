@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Artemisia</title>
+    <link rel="icon" href="https://i.postimg.cc/zXXhVbHv/11.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header с поисковой строкой -->
+    <header>
+        <div class="header-left">
+            <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <img src="https://i.postimg.cc/hjBzgfqS/1.png" alt="Логотип" class="logo">
+        </div>
+
+        <div class="search-container" id="searchContainer">
+            <div class="search-box">
+                <div class="search-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#aaa" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" />
+                    </svg>
+                </div>
+                <input type="text" id="searchInput" placeholder="Поиск художников..." autocomplete="off">
+                <button class="search-btn" onclick="searchArtists()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#262626" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+
+        <button class="mobile-search-btn" id="mobileSearchBtn" onclick="toggleSearch()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" />
+            </svg>
+        </button>
+        <div class="search-backdrop" id="searchBackdrop" onclick="toggleSearch()"></div>
+    </header>
+
+    <!-- Menu Drawer -->
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+    <div class="drawer" id="drawer">
+        <ul class="menu">
+            <li><a href="index.html">
+                    <img src="https://i.postimg.cc/6p8Gfk0N/home.png" alt="Главная">
+                    Главная
+                </a>
+            </li>
+
+            <li>
+                <a href="html/Artist.html">
+                    <img src="https://i.postimg.cc/MGRMh1NP/man-14816778.png" alt="Художники">
+                    Художники
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="has-submenu" onclick="toggleSubmenu(event)">
+                    <img src="https://i.postimg.cc/85mFCN1L/mobile-shopping.png" alt="">
+                    Услуги
+                </a>
+
+                <ul class="submenu">
+                    <li>
+                        <a href="html/Services.html#Commission" class="submenu-link"
+                            onclick="openTabByLink('Commission')">
+                            COMMISSION ART
+                        </a>
+                    </li>
+                    <li>
+                        <a href="html/Services.html#Yunchy" class="submenu-link" onclick="openTabByLink('Yunchy')">
+                            YCH
+                        </a>
+                    </li>
+                    <li>
+                        <a href="html/Services.html#art" class="submenu-link" onclick="openTabByLink('art')">
+                            ADOPT
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="#">
+                    <img src="https://i.postimg.cc/bYRbyHJ4/draw.png" alt="">
+                    Комиксы
+                </a>
+            </li>
+
+            <li class="separator-menu"></li>
+
+            <li><a href="html/AboutUs.html#about-site">
+                    Подробности о сайте
+                </a>
+            </li>
+
+            <li><a href="html/AboutUs.html#publish-work">
+                    Опубликовать работу
+                </a>
+            </li>
+
+            <li><a href="html/AboutUs.html#guarantees">
+                    Гаранты
+                </a>
+            </li>
+
+            <li class="separator-menu"></li>
+
+            <li>
+                <a href="#" class="has-submenu" onclick="toggleSubmenu(event)">
+                    <img src="https://i.postimg.cc/sDXB3kbZ/image.png" alt="">
+                    Документы
+                </a>
+                <ul class="submenu">
+                    <li><a href="html/Document.html#user-agreement" class="submenu-link">Соглашение</a></li>
+                    <li><a href="html/Document.html#usage-rules" class="submenu-link">Правила использования</a></li>
+                    <li><a href="html/Document.html#guaranteed-deals" class="submenu-link">Гарантийные сделки</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Баннер -->
+    <section>
+        <div class="banner">
+            <img src="https://i.postimg.cc/xT1jzcjg/1.png" alt="Баннер">
+        </div>
+        <div class="black-stripe"></div>
+    </section>
+
+    <!-- Новые публикации -->
+    <section>
+        <div class="section-header">
+            <h2 class="section-title">Новые публикации</h2>
+        </div>
+
+        <!-- Лента изображений -->
+        <div class="works-carousel" id="newPublicationsCarousel">
+            <div class="works-inner" id="newPublicationsWorks">
+                <img src="https://i.postimg.cc/wM5kHSrr/image.png" class="work-thumb-2" alt="">
+                <img src="https://i.postimg.cc/jqk8qbCp/photo-5314321601694657861-y.jpg" class="work-thumb-2" alt="">
+                <img src="https://i.postimg.cc/CLVvt42t/Ad-I8-TXcrs.jpg" class="work-thumb-3" alt="">
+                <img src="https://i.postimg.cc/65Rx2MFC/Picsart-25-03-12-18-58-01-115.jpg" class="work-thumb-3" alt="">
+                <img src="https://i.postimg.cc/P5S2Cnqs/photo-5424785192725377473-y.jpg" class="work-thumb-3" alt="">
+                <img src="https://i.postimg.cc/pX6N6gzN/photo-5447416870056619600-y.jpg" class="work-thumb-3" alt="">
+                <img src="https://i.postimg.cc/d0X69Rd5/photo-5424785192725377475-y.jpg" class="work-thumb-3" alt="">
+                <img src="https://i.postimg.cc/nrf1yH37/photo-5424785192725377476-y.jpg" class="work-thumb-3" alt="">
+                <img src="https://i.postimg.cc/q7c7skYX/image.png" class="work-thumb-2" alt="">
+                <img src="https://i.postimg.cc/bw77zkm3/photo-5429173115998566081-y.jpg" class="work-thumb-2" alt="">
+                <img src="https://i.postimg.cc/ryg2Sdpw/photo-5429173115998566083-y.jpg" class="work-thumb-3" alt="">
+            </div>
+            <button class="works-control prev" onclick="prevWork('newPublicationsWorks')">&#10094;</button>
+            <button class="works-control next" onclick="nextWork('newPublicationsWorks')">&#10095;</button>
+        </div>
+    </section>
+
+
+    <!-- Популярные художники -->
+    <section>
+        <div class="section-header">
+            <h2 class="section-title">Популярные художники</h2>
+        </div>
+
+        <div class="works-carousel" id="popularArtistsCarousel">
+            <div class="artists-inner" id="popularArtistsWorks">
+                <!-- Художник 1 -->
+                <div class="artist-card">
+                    <div class="artist-card-inner">
+                        <div class="artist-avatar-container prem" onclick="window.location.href='html/Nance.html'">
+                            <div class="artist-avatar-border"></div>
+                            <img src="https://i.postimg.cc/V6x7z9kJ/photo-5276041150890895665-x-1.jpg" alt="Художник 1"
+                                class="artist-avatar">
+                        </div>
+                        <div class="artist-info">
+                            <h3>Nance</h3>
+                            <a href="https://t.me/Bobbr_kurva" class="artist-username" target="_blank"> @enhchx</a>
+                            <p class="artist-style">Семириализм</p>
+                            <div class="artist-social-links">
+                                <!-- ВКонтакте -->
+                                <a href=" https://vk.com/nensn5 " class="social-link" target="_blank"
+                                    rel="noopener noreferrer" aria-label="ВКонтакте">
+                                    <img src="https://i.postimg.cc/cHhQbQ8q/image.png" alt="VK" width="32" height="32"
+                                        loading="lazy" class="social-icon">
+                                </a>
+
+                                <!-- Telegram -->
+                                <a href=" https://t.me/nensn5 " class="social-link" target="_blank"
+                                    rel="noopener noreferrer" aria-label="Telegram">
+                                    <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram" width="32"
+                                        height="32" loading="lazy" class="social-icon">
+                                </a>
+
+                                <!-- YouTube -->
+                                <a href=" https://www.youtube.com/@nensn5 " class="social-link" target="_blank"
+                                    rel="noopener noreferrer" aria-label="YouTube">
+                                    <img src="https://i.postimg.cc/fW5tnzqN/youtube-1.png" alt="YouTube" width="32"
+                                        height="32" loading="lazy" class="social-icon">
+                                </a>
+
+                                <!-- Пинтерест -->
+                                <a href="https://pin.it/2DbTWOypO" class="social-link" target="_blank"
+                                    rel="noopener noreferrer" aria-label="YouTube">
+                                    <img src="https://i.postimg.cc/T3B57t75/icons8-pinterest-48.png" alt="YouTube"
+                                        width="32" height="32" loading="lazy" class="social-icon">
+                                </a>
+
+                                <!-- ТТ -->
+                                <a href="https://www.tiktok.com/@nensn5_?_r=1&_d=eh83e1547be7il&sec_uid=MS4wLjABAAAALrSTNSIkiV3xErVnI8sQb01Iq5GX5Wgzt9JG01gcoeR26mXUpDDsdnpmqAcroE_f&share_author_id=7400529780627833861&sharer_language=ru&source=h5_m&u_code=efg187216geel8&ug_btm=b8727,b0&social_share_type=4&utm_source=copy&sec_user_id=MS4wLjABAAAALrSTNSIkiV3xErVnI8sQb01Iq5GX5Wgzt9JG01gcoeR26mXUpDDsdnpmqAcroE_f&tt_from=copy&utm_medium=ios&utm_campaign=client_share&enable_checksum=1&user_id=7400529780627833861&share_link_id=E15C10FC-48FE-40F5-BA15-A724E6FDC3CC&share_app_id=1233"
+                                    class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                                    <img src="https://i.postimg.cc/sD6hSj5c/free-icon-video-13670382.png" alt="YouTube"
+                                        width="32" height="32" loading="lazy" class="social-icon">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Художник 2 -->
+                <div class="artist-card">
+                    <div class="artist-card-inner">
+                        <div class="artist-avatar-container">
+                            <div class="artist-avatar-border"></div>
+                            <img src="https://i.postimg.cc/528pmQpJ/photo-5404475215800560744-c.jpg" alt="Художник 2"
+                                class="artist-avatar">
+                        </div>
+                        <div class="artist-info">
+                            <h3>Din_Don</h3>
+                            <a href="https://t.me/Bobbr_kurva" class="artist-username" target="_blank">@Bobbr_kurva </a>
+                            <p class="artist-style">Аниме, ч/б</p>
+                            <div class="artist-social-links">
+                                <a href="https://vk.com/club209891362" class="social-link" target="_blank"
+                                    title="ВКонтакте">
+                                    <img src="https://i.postimg.cc/cHhQbQ8q/image.png" alt="VK" class="social-icon">
+                                </a>
+                                <a href="https://t.me/din_don_studio" class="social-link" target="_blank"
+                                    title="Telegram">
+                                    <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram"
+                                        class="social-icon">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Художник 3 -->
+                <div class="artist-card">
+                    <div class="artist-card-inner">
+                        <div class="artist-avatar-container">
+                            <div class="artist-avatar-border"></div>
+                            <img src="https://i.postimg.cc/j2wv1kyc/photo-5273922907380248156-c.jpg" alt="Художник 2"
+                                class="artist-avatar">
+                        </div>
+                        <div class="artist-info">
+                            <h3>Milcroquis</h3>
+                            <a href="https://t.me/Bobbr_kurva" class="artist-username"
+                                target="_blank">@elenamilcroquis</a>
+                            <p class="artist-style">Семириализм</p>
+                            <div class="artist-social-links">
+                                <a href="https://t.me/milcroquis" class="social-link" target="_blank" title="Telegram">
+                                    <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram"
+                                        class="social-icon">
+                                </a>
+                                <a href="https://youtube.com/@mil.croquis?si=_glne2ISLIk2TeLM" class="social-link"
+                                    target="_blank" title="YouTube">
+                                    <img src="https://i.postimg.cc/fW5tnzqN/youtube-1.png" alt="YouTube"
+                                        class="social-icon">
+                                </a>
+                                <a href="https://www.instagram.com/mil.croquis?igsh=Y2IxemMxbW9keXc1&utm_source=qr"
+                                    class="social-link" target="_blank" title="Инста">
+                                    <img src="https://i.postimg.cc/yNzgZcft/image.png" alt="Инста" class="social-icon">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Художник 4 -->
+                <div class="artist-card">
+                    <div class="artist-card-inner">
+                        <div class="artist-avatar-container">
+                            <div class="artist-avatar-border"></div>
+                            <img src="https://i.postimg.cc/ncMMyfjp/photo-5258297730458054340-c.jpg" alt="Художник 4"
+                                class="artist-avatar">
+                        </div>
+                        <div class="artist-info">
+                            <h3>UWI</h3>
+                            <a href="https://t.me/Bobbr_kurva" class="artist-username" target="_blank">@uwi_san</a>
+                            <p class="artist-style">Аниме</p>
+                            <div class="artist-social-links">
+                                <a href="https://t.me/uwi_san" class="social-link" target="_blank" title="Telegram">
+                                    <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram"
+                                        class="social-icon">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Художник 5 -->
+                <div class="artist-card">
+                    <div class="artist-card-inner">
+                        <div class="artist-avatar-container">
+                            <div class="artist-avatar-border"></div>
+                            <img src="https://i.postimg.cc/zGHmZ0Fy/photo-5192963229117179964-c.jpg" alt="Художник 5"
+                                class="artist-avatar">
+                        </div>
+                        <div class="artist-info">
+                            <h3>ХасКирал</h3>
+                            <a href="https://t.me/Bobbr_kurva" class="artist-username" target="_blank">@kiradomysx</a>
+                            <p class="artist-style">Авторский</p>
+                            <div class="artist-social-links">
+                                <a href="https://t.me/Kiralsillustrator" class="social-link" target="_blank"
+                                    title="Telegram">
+                                    <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram"
+                                        class="social-icon">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="works-control prev" onclick="prevWork('popularArtistsWorks')">&#10094;</button>
+            <button class="works-control next" onclick="nextWork('popularArtistsWorks')">&#10095;</button>
+        </div>
+
+        <a href="html/Artist.html" class="find-artist-btn">Найти художника</a>
+    </section>
+
+    <!-- Новая секция с подписками -->
+    <section class="subscription-section">
+        <h2 class="subscription-title">Статусы художников</h2>
+
+        <div class="subscription-cards">
+            <!-- Карточка Free Artist -->
+            <div class="subscription-card free">
+                <div class="subscription-header">
+                    <h3 class="subscription-name">Free Artist</h3>
+                </div>
+
+                <div class="subscription-price">
+                    Бесплатный доступ
+                </div>
+
+                <div class="subscription-features">
+                    <div class="subscription-feature">
+                        <span class="subscription-feature-icon">✓</span>
+                        <span>Базовый профиль художника</span>
+                    </div>
+                    <div class="subscription-feature">
+                        <span class="subscription-feature-icon">✓</span>
+                        <span>3 соцсети для связи с вами</span>
+                    </div>
+                    <div class="subscription-feature">
+                        <span class="subscription-feature-icon">✓</span>
+                        <span>Ограниченние работ до категории 18+</span>
+                    </div>
+                    <div class="subscription-feature">
+                        <span class="subscription-feature-icon">✓</span>
+                        <span>Имеется возможность выложить свои услуги </span>
+                    </div>
+                    <div class="subscription-feature">
+                        <span class="subscription-feature-icon">✓</span>
+                        <span>Доступно получение заказов</span>
+                    </div>
+                </div>
+
+                <div class="subscription-contact">
+                    <div class="subscription-contact-title">По вопросам регистрации:</div>
+                    <a href="https://t.me/ArtemisiNEWS_bot" class="subscription-contact-link" target="_blank">
+                        <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" class="subscription-contact-icon"
+                            alt="Telegram">
+                        @ArtemisiNEWS_bot
+                    </a>
+                </div>
+
+                <a href="https://t.me/Artemisia_publication_bot" class="subscription-btn free">Зарегистрироваться</a>
+            </div>
+
+            <!-- Карточка Prem Artist -->
+            <div class="subscription-card prem">
+                <div class="subscription-discount">-50% </div>
+
+                <div class="subscription-header">
+                    <h3 class="subscription-name prem">Prem Artist</h3>
+
+                </div>
+
+                <div class="subscription-price prem">
+                    <span class="old-price">280 ₽/мес</span>
+                    140 ₽/мес
+                </div>
+
+                <div class="subscription-features">
+                    <div class="subscription-feature prem">
+                        <span class="subscription-feature-icon">★</span>
+                        <span>Все функции Free Artist</span>
+                    </div>
+                    <div class="subscription-feature prem">
+                        <span class="subscription-feature-icon">★</span>
+                        <span>Собственная веб-страница с профилем, на которой вы можете выложить свою информацию</span>
+                    </div>
+                    <div class="subscription-feature prem">
+                        <span class="subscription-feature-icon">★</span>
+                        <span>Неограниченное количество соцсетей</span>
+                    </div>
+                    <div class="subscription-feature prem">
+                        <span class="subscription-feature-icon">★</span>
+                        <span>Анимированный профиль</span>
+                    </div>
+                    <div class="subscription-feature prem">
+                        <span class="subscription-feature-icon">★</span>
+                        <span>Неограниченное количество работ даже с категорией 18+ с пометкой</span>
+                    </div>
+                    <div class="subscription-feature prem">
+                        <span class="subscription-feature-icon">★</span>
+                        <span>Приоритет в поиске и рекомендациях</span>
+                    </div>
+                    <div class="subscription-feature prem">
+                        <span class="subscription-feature-icon">★</span>
+                        <span>Для оформлении заявки вам предоставляется модератор</span>
+                    </div>
+                </div>
+
+                <div class="subscription-contact">
+                    <div class="subscription-contact-title">По вопросам премиум-статуса:</div>
+                    <a href="https://t.me/Gg00Se" class="subscription-contact-link" target="_blank">
+                        <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" class="subscription-contact-icon"
+                            alt="Telegram">
+                        @Gg00Se
+                    </a>
+                </div>
+
+                <a href="https://t.me/Gg00Se" class="subscription-btn prem" target="_blank">Оформить премиум</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Популярные иллюстраторы -->
+    <section class="popular-illustrators-section">
+        <div class="popular-illustrators-header">
+            <div class="section-header">
+                <h2 class="section-title">Популярные иллюстраторы</h2>
+            </div>
+
+            <div class="illustrators-filters">
+                <button class="illustrator-filter-btn" onclick="changeIllustratorFilter('week')">Неделя</button>
+                <button class="illustrator-filter-btn" onclick="changeIllustratorFilter('month')">Месяц</button>
+            </div>
+        </div>
+
+        <div class="illustrators-grid" id="illustratorsGrid">
+
+            <!-- Иллюстраторы недели (4 видимых + 4 скрытых) -->
+            <div class="illustrator-card-v2 week"
+                onclick="openImageModal('https://i.postimg.cc/RZLNMLsc/photo-5193146667170393714-y.jpg')">
+                <div class="illustrator-image-container">
+                    <img src="https://i.postimg.cc/RZLNMLsc/photo-5193146667170393714-y.jpg" alt=""
+                        class="illustrator-image">
+                </div>
+                <div class="illustrator-info">
+                    <h3 class="illustrator-name">
+                        <img src="https://i.postimg.cc/V6x7z9kJ/photo-5276041150890895665-x-1.jpg"
+                            class="illustrator-avatar" alt="Ава">
+                        Nance
+                    </h3>
+                    <p class="illustrator-style">"Бунт против AI"</p>
+                    <p class="illustrator-style">#starterpacknoai</p>
+                    <div class="illustrator-stats">
+                        <div class="illustrator-likes">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                            </svg>
+
+                        </div>
+                        <div class="illustrator-price"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="illustrator-card-v2 week"
+                onclick="openImageModal('https://i.postimg.cc/RhHkvGR9/photo-5190480205444151713-y.jpg')">
+                <div class="illustrator-image-container">
+                    <img src="https://i.postimg.cc/RhHkvGR9/photo-5190480205444151713-y.jpg" alt="Художник 6"
+                        class="illustrator-image">
+                </div>
+                <div class="illustrator-info">
+                    <h3 class="illustrator-name">
+                        <img src="https://i.postimg.cc/j2wv1kyc/photo-5273922907380248156-c.jpg"
+                            class="illustrator-avatar" alt="Ава">
+                        Milcroquis
+                    </h3>
+                    <p class="illustrator-style">Облако в штанах </p>
+                    <p class="illustrator-style">В.В. Маяковский </p>
+                    <p class="illustrator-style"></p>
+                    <div class="illustrator-stats">
+                        <div class="illustrator-likes">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                            </svg>
+
+                        </div>
+                        <div class="illustrator-price"> </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="illustrator-card-v2 week hidden-illustrators"
+                onclick="openImageModal('https://i.postimg.cc/Gh1XVbZH/photo-5467614095499980869-y.jpg')">
+                <div class="illustrator-image-container">
+                    <img src="https://i.postimg.cc/Gh1XVbZH/photo-5467614095499980869-y.jpg" alt="Художник 9"
+                        class="illustrator-image">
+                </div>
+                <div class="illustrator-info">
+                    <h3 class="illustrator-name">
+                        <img src="https://i.postimg.cc/j2wv1kyc/photo-5273922907380248156-c.jpg"
+                            class="illustrator-avatar" alt="Ава">
+                        Milcroquis
+                    </h3>
+                    <p class="illustrator-style">"Одна так нежно розовеет,
+                        Как дева, милым смущена…"</p>
+                    <p class="illustrator-style">Н. Гумилев </p>
+                    <div class="illustrator-stats">
+                        <div class="illustrator-likes">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                            </svg>
+
+                        </div>
+                        <div class="illustrator-price"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Иллюстраторы месяца (4 видимых + 4 скрытых) -->
+            <div class="illustrator-card-v2 month"
+                onclick="openImageModal('https://i.postimg.cc/YCLjFwCz/photo-5460828919050661240-y.jpg')">
+                <div class="illustrator-badge">Топ месяца</div>
+                <div class="illustrator-image-container">
+                    <img src="https://i.postimg.cc/YCLjFwCz/photo-5460828919050661240-y.jpg" alt="UWI"
+                        class="illustrator-image">
+                </div>
+                <div class="illustrator-info">
+                    <h3 class="illustrator-name">
+                        <img src="https://i.postimg.cc/528pmQpJ/photo-5404475215800560744-c.jpg"
+                            class="illustrator-avatar" alt="Ава">
+                        Din_Don
+                    </h3>
+                    <p class="illustrator-style">Аниме • Персонажи</p>
+                    <div class="illustrator-stats">
+                        <div class="illustrator-likes">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                            </svg>
+
+                        </div>
+                        <div class="illustrator-price"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="illustrator-card-v2 month"
+                onclick="openImageModal('https://i.postimg.cc/WbC1TfwF/photo-5434111619719360801-y.jpg')">
+                <div class="illustrator-image-container">
+                    <img src="https://i.postimg.cc/WbC1TfwF/photo-5434111619719360801-y.jpg" alt="Художник 7"
+                        class="illustrator-image">
+                </div>
+                <div class="illustrator-info">
+                    <h3 class="illustrator-name">
+                        <img src="https://i.postimg.cc/V6x7z9kJ/photo-5276041150890895665-x-1.jpg"
+                            class="illustrator-avatar" alt="Ава">
+                        Nance
+                    </h3>
+                    <p class="illustrator-style">Аниме • Персонажи</p>
+                    <div class="illustrator-stats">
+                        <div class="illustrator-likes">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                            </svg>
+
+                        </div>
+                        <div class="illustrator-price"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="illustrator-card-v2 month hidden-illustrators"
+                onclick="openImageModal('https://i.postimg.cc/Pqkf8pcd/photo-5445068089881389170-y.jpg')">
+                <div class="illustrator-image-container">
+                    <img src="https://i.postimg.cc/Pqkf8pcd/photo-5445068089881389170-y.jpg" alt="Художник 11"
+                        class="illustrator-image">
+                </div>
+                <div class="illustrator-info">
+                    <h3 class="illustrator-name">
+                        <img src="https://i.postimg.cc/V6x7z9kJ/photo-5276041150890895665-x-1.jpg"
+                            class="illustrator-avatar" alt="Ава">
+                        Nance
+                    </h3>
+                    <p class="illustrator-style">Семириализм • Портреты</p>
+                    <div class="illustrator-stats">
+                        <div class="illustrator-likes">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                            </svg>
+
+                        </div>
+                        <div class="illustrator-price"></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <button class="view-all-btn" id="viewAllBtn">Смотреть всех</button>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="image-close-btn" onclick="closeImageModal()">&times;</span>
+        <div class="image-modal-content">
+            <img id="expandedImg" class="image-modal-img" src="" alt="Expanded Image">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <a href="index.html" class="footer-logo-link">
+                    <img src="https://i.postimg.cc/hjBzgfqS/1.png" alt="Artemisia" class="footer-logo">
+                </a>
+            </div>
+
+            <div class="footer-links">
+                <a href="html/AboutUs.html#about-site" class="footer-link">Подробности о сайте</a>
+                <a href="https://t.me/Artemisia_publication_bot" class="footer-link">Опубликовать работу</a>
+                <a href="https://t.me/Gg00Se" class="footer-link">Связь с гарантом</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="update-text">
+                Следите за обновлениями
+                <a href="https://t.me/Artemisia_website" class="update-link" target="_blank">@Artemisia</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Стрлека вверх -->
+    <div id="backToBottomBtn" class="back-to-bottom-btn" onclick="scrollToBottom()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
+        </svg>
+    </div>
+
+    <div id="backToTopBtn" class="back-to-top-btn" onclick="scrollToTop()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+        </svg>
+    </div>
+
+    <script>
+        // Menu Functions
+        function toggleMenu() {
+            const drawer = document.getElementById('drawer');
+            const overlay = document.getElementById('overlay');
+            const menuIcon = document.getElementById('menuIcon');
+            const body = document.body;
+            const searchInput = document.getElementById('searchInput');
+
+            // Сохраняем позицию прокрутки перед открытием
+            if (!body.classList.contains('menu-open')) {
+                body.style.top = `-${window.scrollY}px`;
+            }
+
+            drawer.classList.toggle('open');
+            overlay.classList.toggle('active');
+            menuIcon.classList.toggle('active');
+            body.classList.toggle('menu-open');
+            searchInput.disabled = body.classList.contains('menu-open');
+
+            // Восстанавливаем позицию прокрутки при закрытии
+            if (!body.classList.contains('menu-open')) {
+                const scrollY = parseInt(body.style.top || '0');
+                body.style.top = '';
+                window.scrollTo(0, -scrollY);
+            }
+        }
+
+        function closeMenu() {
+            const drawer = document.getElementById('drawer');
+            const overlay = document.getElementById('overlay');
+            const menuIcon = document.getElementById('menuIcon');
+            const body = document.body;
+
+            drawer.classList.remove('open');
+            overlay.classList.remove('active');
+            menuIcon.classList.remove('active');
+            body.classList.remove('menu-open');
+        }
+
+        // Toggle submenus
+        function toggleSubmenu(event) {
+            event.preventDefault();
+            const link = event.currentTarget;
+            const submenu = link.nextElementSibling;
+
+            // Close all other submenus first
+            document.querySelectorAll('.submenu').forEach(menu => {
+                if (menu !== submenu) {
+                    menu.classList.remove('active');
+                    menu.previousElementSibling.classList.remove('active');
+                }
+            });
+
+            // Toggle current submenu
+            link.classList.toggle('active');
+            submenu.classList.toggle('active');
+        }
+
+        // Close menu when clicking on overlay
+        document.getElementById('overlay').addEventListener('click', closeMenu);
+
+        // New Search Functionality
+        function toggleSearch() {
+            const searchContainer = document.getElementById('searchContainer');
+            const searchBackdrop = document.getElementById('searchBackdrop');
+            const isActive = searchContainer.classList.contains('active');
+
+            if (isActive) {
+                searchContainer.classList.remove('active');
+                searchBackdrop.classList.remove('active');
+                document.getElementById('searchResults').classList.remove('active');
+                document.getElementById('searchInput').value = '';
+                document.body.style.overflow = 'auto';
+            } else {
+                searchContainer.classList.add('active');
+                searchBackdrop.classList.add('active');
+                document.getElementById('searchInput').focus();
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Close menu if open
+            if (document.getElementById('drawer').classList.contains('open')) {
+                toggleMenu();
+            }
+        }
+
+        function searchArtists() {
+            const searchText = document.getElementById('searchInput').value.trim().toLowerCase();
+            const resultsContainer = document.getElementById('searchResults');
+
+            if (!searchText) {
+                resultsContainer.innerHTML = '<div class="no-results">Введите запрос для поиска</div>';
+                resultsContainer.classList.add('active');
+                return;
+            }
+
+            const artists = document.querySelectorAll('.profile-section');
+            let found = false;
+            resultsContainer.innerHTML = '';
+
+            artists.forEach(artist => {
+                const artistName = artist.querySelector('h1').textContent.toLowerCase();
+                const artistStyle = artist.querySelector('p').textContent.toLowerCase();
+                const artistLink = artist.querySelector('.profile-link').textContent.toLowerCase();
+                const artistAvatar = artist.querySelector('.avatar').src;
+
+                if (artistName.includes(searchText) || artistStyle.includes(searchText) || artistLink.includes(searchText)) {
+                    found = true;
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'search-result-item';
+
+                    resultItem.innerHTML = `
+                        <img src="${artistAvatar}" alt="${artistName}">
+                        <div class="info">
+                            <div class="name">${artist.querySelector('h1').textContent}</div>
+                            <div class="style">${artist.querySelector('p').textContent}</div>
+                        </div>
+                    `;
+
+                    resultItem.onclick = () => {
+                        document.getElementById('searchInput').value = '';
+                        scrollToArtist(artist);
+                        toggleSearch();
+                    };
+                    resultsContainer.appendChild(resultItem);
+                }
+            });
+
+            if (!found) {
+                resultsContainer.innerHTML = '<div class="no-results">Поиск доступен на странице с Художниками </div>';
+            }
+            resultsContainer.classList.add('active');
+        }
+
+        // Highlight text
+        function highlightText(element, searchText) {
+            const text = element.textContent;
+            const regex = new RegExp(`(${searchText})`, 'gi');
+            element.innerHTML = text.replace(regex, match =>
+                `<span class="highlight">${match}</span>`
+            );
+        }
+
+        // Обновленная функция прокрутки к художнику
+        function scrollToArtist(artist) {
+            // Удаляем предыдущие подсветки
+            document.querySelectorAll('.artist-highlight').forEach(el => {
+                el.classList.remove('artist-highlight');
+            });
+
+            // Добавляем подсветку
+            artist.classList.add('artist-highlight');
+
+            // Прокручиваем плавно к элементу с учетом хедера
+            const yOffset = -80;
+            const y = artist.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+            window.scrollTo({
+                top: y,
+                behavior: 'smooth'
+            });
+
+            // Убираем подсветку через 3 секунды
+            setTimeout(() => {
+                artist.classList.remove('artist-highlight');
+            }, 3000);
+
+            // Упрощенная обработка прерывания прокрутки
+            const handleInterrupt = () => {
+                artist.classList.remove('artist-highlight');
+            };
+
+            // Добавляем однократный обработчик
+            window.addEventListener('scroll', handleInterrupt, {
+                once: true,
+                passive: true // Оптимизация для плавной прокрутки
+            });
+
+            // Гарантируем восстановление скролла
+            setTimeout(() => {
+                document.body.style.overflow = 'auto';
+                document.body.style.position = 'static';
+            }, 500);
+        }
+
+        // Search on Enter key
+        document.getElementById('searchInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                searchArtists();
+            }
+        });
+
+        // Real-time search on input
+        document.getElementById('searchInput').addEventListener('input', function () {
+            if (this.value.length > 0) {
+                searchArtists();
+            } else {
+                document.getElementById('searchResults').classList.remove('active');
+            }
+        });
+
+        // Close search when clicking outside (desktop)
+        document.addEventListener('click', function (e) {
+            const searchContainer = document.getElementById('searchContainer');
+            const searchResults = document.getElementById('searchResults');
+            const searchInput = document.getElementById('searchInput');
+            const mobileSearchBtn = document.getElementById('mobileSearchBtn');
+
+            if (!searchContainer.contains(e.target) &&
+                e.target !== mobileSearchBtn &&
+                !searchResults.contains(e.target)) {
+                searchResults.classList.remove('active');
+            }
+        });
+
+        // Close search when scrolling on mobile
+        window.addEventListener('scroll', function () {
+            if (window.innerWidth <= 768 &&
+                document.getElementById('searchContainer').classList.contains('active')) {
+                toggleSearch();
+            }
+        });
+
+        // Carousel Functionality
+        const carouselStates = {};
+
+        function initCarousel(worksInnerId) {
+            if (!carouselStates[worksInnerId]) {
+                carouselStates[worksInnerId] = {
+                    currentTranslate: 0,
+                    prevTranslate: 0,
+                    isDragging: false,
+                    startPos: 0,
+                    animationID: 0,
+                    currentIndex: 0
+                };
+            }
+
+            const worksInner = document.getElementById(worksInnerId);
+            const works = worksInner.querySelectorAll('.work-thumb, .work-thumb-1, .work-thumb-2, .work-thumb-3, .artist-card');
+
+            // Add event handlers
+            worksInner.addEventListener('mousedown', (e) => {
+                const state = carouselStates[worksInnerId];
+                state.isDragging = true;
+                state.startPos = e.clientX;
+                state.prevTranslate = state.currentTranslate;
+                state.animationID = requestAnimationFrame(() => animation(worksInnerId));
+                worksInner.style.cursor = 'grabbing';
+                worksInner.style.transition = 'none';
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                const state = carouselStates[worksInnerId];
+                if (!state.isDragging) return;
+                const currentPosition = e.clientX;
+                state.currentTranslate = state.prevTranslate + currentPosition - state.startPos;
+
+                // На мобильных устройствах ограничиваем перемещение
+                if (window.innerWidth <= 768) {
+                    const maxTranslate = 0;
+                    const minTranslate = -getMaxTranslate(worksInnerId);
+                    state.currentTranslate = Math.max(minTranslate, Math.min(maxTranslate, state.currentTranslate));
+                }
+            });
+
+            window.addEventListener('mouseup', () => {
+                const state = carouselStates[worksInnerId];
+                if (!state.isDragging) return;
+                state.isDragging = false;
+                cancelAnimationFrame(state.animationID);
+                worksInner.style.cursor = 'grab';
+
+                const movedBy = state.currentTranslate - state.prevTranslate;
+                const visibleWorks = getVisibleWorksCount(worksInnerId);
+
+                if (movedBy < -100) nextWork(worksInnerId, 1);
+                else if (movedBy > 100) prevWork(worksInnerId, 1);
+                else setPosition(worksInnerId);
+
+                worksInner.style.transition = 'transform 0.5s ease';
+            });
+
+            // Touch events
+            worksInner.addEventListener('touchstart', (e) => {
+                const state = carouselStates[worksInnerId];
+                state.isDragging = true;
+                state.startPos = e.touches[0].clientX;
+                state.prevTranslate = state.currentTranslate;
+                state.animationID = requestAnimationFrame(() => animation(worksInnerId));
+                worksInner.style.transition = 'none';
+            });
+
+            window.addEventListener('touchmove', (e) => {
+                const state = carouselStates[worksInnerId];
+                if (!state.isDragging) return;
+                const currentPosition = e.touches[0].clientX;
+                state.currentTranslate = state.prevTranslate + currentPosition - state.startPos;
+
+                // На мобильных устройствах ограничиваем перемещение
+                if (window.innerWidth <= 768) {
+                    const maxTranslate = 0;
+                    const minTranslate = -getMaxTranslate(worksInnerId);
+                    state.currentTranslate = Math.max(minTranslate, Math.min(maxTranslate, state.currentTranslate));
+                }
+            });
+
+            window.addEventListener('touchend', () => {
+                const state = carouselStates[worksInnerId];
+                if (!state.isDragging) return;
+                state.isDragging = false;
+                cancelAnimationFrame(state.animationID);
+
+                const movedBy = state.currentTranslate - state.prevTranslate;
+                const visibleWorks = getVisibleWorksCount(worksInnerId);
+
+                if (movedBy < -100) nextWork(worksInnerId, 1);
+                else if (movedBy > 100) prevWork(worksInnerId, 1);
+                else setPosition(worksInnerId);
+
+                worksInner.style.transition = 'transform 0.5s ease';
+            });
+        }
+
+        // Функция для получения максимального смещения
+        function getMaxTranslate(worksInnerId) {
+            const worksInner = document.getElementById(worksInnerId);
+            const works = worksInner.querySelectorAll('.work-thumb, .work-thumb-1, .work-thumb-2, .work-thumb-3, .artist-card');
+
+            if (works[0] && works[0].classList.contains('artist-card')) {
+                const cardWidth = works[0].offsetWidth + 30;
+                return (works.length - 1) * cardWidth;
+            } else {
+                const workWidth = works[0].offsetWidth + 20;
+                return (works.length - 1) * workWidth;
+            }
+        }
+
+
+        function animation(worksInnerId) {
+            setPosition(worksInnerId);
+            const state = carouselStates[worksInnerId];
+            if (state.isDragging) requestAnimationFrame(() => animation(worksInnerId));
+        }
+
+        function setPosition(worksInnerId) {
+            const state = carouselStates[worksInnerId];
+            const worksInner = document.getElementById(worksInnerId);
+            worksInner.style.transform = `translateX(${state.currentTranslate}px)`;
+        }
+
+        function getVisibleWorksCount(worksInnerId) {
+            const worksInner = document.getElementById(worksInnerId);
+            const works = worksInner.querySelectorAll('.work-thumb, .work-thumb-1, .work-thumb-2, .work-thumb-3, .artist-card');
+            const containerWidth = worksInner.parentElement.offsetWidth;
+
+            if (works[0] && works[0].classList.contains('artist-card')) {
+                const cardWidth = works[0].offsetWidth + 30; // Work width + gap
+                return Math.floor(containerWidth / cardWidth);
+            }
+
+            const workWidth = works[0].offsetWidth + 20; // Work width + gap
+            return Math.floor(containerWidth / workWidth);
+        }
+
+
+        function nextWork(worksInnerId, step = 1) {
+            const worksInner = document.getElementById(worksInnerId);
+            const works = worksInner.querySelectorAll('.work-thumb, .work-thumb-1, .work-thumb-2, .work-thumb-3, .artist-card');
+            const state = carouselStates[worksInnerId];
+            const visibleWorks = getVisibleWorksCount(worksInnerId);
+            const maxTranslate = -getMaxTranslate(worksInnerId);
+
+            // Для карточек художников
+            if (works[0] && works[0].classList.contains('artist-card')) {
+                const cardWidth = works[0].offsetWidth + 30;
+
+                // На мобильных - листаем по одному и ограничиваем
+                if (window.innerWidth <= 768) {
+                    state.currentIndex = Math.min(state.currentIndex + step, works.length - 1);
+                    state.currentTranslate = -state.currentIndex * cardWidth;
+                }
+                // На десктопе - обычное поведение
+                else {
+                    state.currentIndex = Math.min(state.currentIndex + step, works.length - visibleWorks);
+                    state.currentTranslate = -state.currentIndex * cardWidth;
+                }
+            }
+            // Для обычных работ
+            else {
+                const workWidth = works[0].offsetWidth + 20;
+
+                // На мобильных - листаем по одному и ограничиваем
+                if (window.innerWidth <= 768) {
+                    state.currentIndex = Math.min(state.currentIndex + step, works.length - 1);
+                    state.currentTranslate = -state.currentIndex * workWidth;
+                }
+                // На десктопе - обычное поведение
+                else {
+                    state.currentIndex = Math.min(state.currentIndex + step, works.length - visibleWorks);
+                    state.currentTranslate = -state.currentIndex * workWidth;
+                }
+            }
+
+            worksInner.style.transition = 'transform 0.5s ease';
+            setPosition(worksInnerId);
+        }
+
+        function prevWork(worksInnerId, step = 1) {
+            const worksInner = document.getElementById(worksInnerId);
+            const works = worksInner.querySelectorAll('.work-thumb, .work-thumb-1, .work-thumb-2, .work-thumb-3, .artist-card');
+            const state = carouselStates[worksInnerId];
+
+            // Для карточек художников
+            if (works[0] && works[0].classList.contains('artist-card')) {
+                const cardWidth = works[0].offsetWidth + 30;
+
+                // На мобильных - листаем по одному и ограничиваем
+                if (window.innerWidth <= 768) {
+                    state.currentIndex = Math.max(state.currentIndex - step, 0);
+                    state.currentTranslate = -state.currentIndex * cardWidth;
+                }
+                // На десктопе - обычное поведение
+                else {
+                    state.currentIndex = Math.max(state.currentIndex - step, 0);
+                    state.currentTranslate = -state.currentIndex * cardWidth;
+                }
+            }
+            // Для обычных работ
+            else {
+                const workWidth = works[0].offsetWidth + 20;
+
+                // На мобильных - листаем по одному и ограничиваем
+                if (window.innerWidth <= 768) {
+                    state.currentIndex = Math.max(state.currentIndex - step, 0);
+                    state.currentTranslate = -state.currentIndex * workWidth;
+                }
+                // На десктопе - обычное поведение
+                else {
+                    state.currentIndex = Math.max(state.currentIndex - step, 0);
+                    state.currentTranslate = -state.currentIndex * workWidth;
+                }
+            }
+
+            worksInner.style.transition = 'transform 0.5s ease';
+            setPosition(worksInnerId);
+        }
+
+        // Modal Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Full Image Modal Functions
+        function openImageModal(imgSrc) {
+            const imageModal = document.getElementById('imageModal');
+            const expandedImg = document.getElementById('expandedImg');
+
+            expandedImg.src = imgSrc;
+            imageModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            document.getElementById('imageModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function (event) {
+            document.querySelectorAll('.modal').forEach(modal => {
+                if (event.target == modal) {
+                    closeModal(modal.id);
+                }
+            });
+
+            if (event.target === document.getElementById('imageModal')) {
+                closeImageModal();
+            }
+        }
+
+        // Close modals with ESC key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                document.querySelectorAll('.modal').forEach(modal => {
+                    if (modal.style.display === 'block') {
+                        closeModal(modal.id);
+                    }
+                });
+
+                if (document.getElementById('imageModal').style.display === 'block') {
+                    closeImageModal();
+                }
+            }
+        });
+
+        // Click on works in carousel opens corresponding modal
+        document.querySelectorAll('.work-thumb, .work-thumb-1, .work-thumb-2, .work-thumb-3').forEach(thumb => {
+            thumb.addEventListener('click', function (e) {
+                e.stopPropagation();
+                openImageModal(this.src);
+            });
+        });
+
+        // Click on images in artist modals
+        document.querySelectorAll('.modal-img').forEach(img => {
+            img.addEventListener('click', function (e) {
+                e.stopPropagation();
+                openImageModal(this.src);
+            });
+        });
+
+        // Back to Top Function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide back to top button on scroll
+        window.addEventListener('scroll', function () {
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            const backToBottomBtn = document.getElementById('backToBottomBtn');
+            const scrollPosition = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.body.scrollHeight;
+
+            // Определяем, находится ли пользователь внизу страницы
+            const isAtBottom = scrollPosition + windowHeight >= documentHeight - 100;
+
+            // Управление кнопкой "Вверх"
+            if (scrollPosition > 300 && !isAtBottom) {
+                backToTopBtn.classList.add('active');
+                backToBottomBtn.classList.add('with-up');
+            } else {
+                backToTopBtn.classList.remove('active');
+                backToBottomBtn.classList.remove('with-up');
+            }
+
+            // Управление кнопкой "Вниз"
+            if (!isAtBottom) {
+                backToBottomBtn.classList.add('active');
+            } else {
+                backToBottomBtn.classList.remove('active');
+            }
+        });
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize carousels
+            initCarousel('newPublicationsWorks');
+            initCarousel('popularArtistsWorks');
+
+            // Adapt carousels on window resize
+            window.addEventListener('resize', () => {
+                Object.keys(carouselStates).forEach(worksInnerId => {
+                    carouselStates[worksInnerId].currentTranslate = 0;
+                    setPosition(worksInnerId);
+                });
+            });
+
+            // Add intersection observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+
+                        // Для модальных изображений
+                        if (entry.target.classList.contains('modal-img')) {
+                            setTimeout(() => {
+                                entry.target.classList.add('visible');
+                            }, 100 * index);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Наблюдаем за всеми элементами
+            document.querySelectorAll('.new-publications, .popular-artists, .works-carousel, .profile-section').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Для изображений в модалках
+            document.querySelectorAll('.modal-img').forEach((img, index) => {
+                observer.observe(img);
+            });
+
+            // Инициализация фильтрации иллюстраторов
+            filterIllustrators('week');
+        });
+
+        // Function to open tab by link
+        function openTabByLink(tabId) {
+            // This function would be implemented in the Services.html page
+            console.log('Opening tab:', tabId);
+        }
+
+        // Function to change illustrator filter
+        function changeIllustratorFilter(filterType) {
+            const buttons = document.querySelectorAll('.illustrator-filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Активируем нажатую кнопку
+            event.target.classList.add('active');
+
+            filterIllustrators(filterType);
+
+            // Сбрасываем кнопку "Смотреть всех" при смене фильтра
+            document.getElementById('viewAllBtn').textContent = 'Смотреть всех';
+        }
+
+        function filterIllustrators(filterType) {
+            const illustrators = document.querySelectorAll('.illustrator-card-v2');
+            const hiddenIllustrators = document.querySelectorAll('.hidden-illustrators');
+
+            // Сначала скрываем все работы
+            illustrators.forEach(illustrator => {
+                illustrator.style.display = 'none';
+            });
+
+            // Показываем только работы выбранного периода
+            const filteredIllustrators = document.querySelectorAll(`.illustrator-card-v2.${filterType}`);
+            filteredIllustrators.forEach((illustrator, index) => {
+                // Показываем первые 4 работы, остальные скрываем
+                if (index < 4) {
+                    illustrator.style.display = 'block';
+                } else {
+                    illustrator.style.display = 'none';
+                }
+            });
+
+            // Скрываем все дополнительные работы
+            hiddenIllustrators.forEach(illustrator => {
+                illustrator.style.display = 'none';
+            });
+        }
+
+        // Function to toggle view all illustrators
+        document.getElementById('viewAllBtn').addEventListener('click', function () {
+            const btn = document.getElementById('viewAllBtn');
+            const activeFilter = document.querySelector('.illustrator-filter-btn.active').textContent;
+            let filterType = 'week';
+
+            if (activeFilter === 'Неделя') filterType = 'week';
+            else if (activeFilter === 'Месяц') filterType = 'month';
+
+            const hiddenIllustrators = document.querySelectorAll(`.illustrator-card-v2.${filterType}.hidden-illustrators`);
+
+            if (btn.textContent === 'Смотреть всех') {
+                // Показываем скрытые работы текущего фильтра
+                hiddenIllustrators.forEach(illustrator => {
+                    illustrator.style.display = 'block';
+                });
+                btn.textContent = 'Скрыть';
+
+                // Прокручиваем к кнопке после раскрытия
+                setTimeout(() => {
+                    btn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+            } else {
+                // Скрываем дополнительные работы текущего фильтра
+                hiddenIllustrators.forEach(illustrator => {
+                    illustrator.style.display = 'none';
+                });
+                btn.textContent = 'Смотреть всех';
+
+                // Прокручиваем к началу секции
+                document.querySelector('.popular-illustrators-section').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+
+        // Инициализация фильтрации иллюстраторов - по умолчанию "неделя"
+        filterIllustrators('week');
+        // Активируем кнопку "неделя"
+        document.querySelector('.illustrator-filter-btn').classList.add('active');
+
+
+
+        // Добавьте эти функции в ваш JavaScript
+        function scrollToBottom() {
+            const footer = document.querySelector('.site-footer');
+            footer.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+
+    </script>
+</body>
+
+</html>

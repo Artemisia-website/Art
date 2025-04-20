@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artemisia - Документы</title>
+    <link rel="icon" href="https://i.postimg.cc/zXXhVbHv/11.png" type="image/x-icon">
+    <link rel="stylesheet" href="../Rul.css">
+   
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <img src="https://i.postimg.cc/hjBzgfqS/1.png" alt="Логотип" class="logo">
+        </div>
+
+        <div class="search-backdrop" id="searchBackdrop" onclick="toggleSearch()"></div>
+    </header>
+
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <div class="drawer" id="drawer">
+        <ul class="menu">
+            <li><a href="../index.html">
+                    <img src="https://i.postimg.cc/6p8Gfk0N/home.png" alt="Главная">
+                    Главная
+                </a>
+            </li>
+    
+            <li>
+                <a href="Artist.html">
+                    <img src="https://i.postimg.cc/MGRMh1NP/man-14816778.png" alt="Художники">
+                    Художники
+                </a>
+            </li>
+    
+            <li>
+                <a href="Services.html" class="has-submenu" onclick="toggleSubmenu(event)">
+                    <img src="https://i.postimg.cc/85mFCN1L/mobile-shopping.png" alt="">
+                    Услуги
+                </a>
+    
+                <ul class="submenu">
+                    <li>
+                        <a href="Services.html#Commission" class="submenu-link" onclick="openTabByLink('Commission')">
+                            COMMISSION ART
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Services.html#Yunchy" class="submenu-link" onclick="openTabByLink('Yunchy')">
+                            YCH
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Services.html#art" class="submenu-link" onclick="openTabByLink('art')">
+                            ADOPT
+                        </a>
+                    </li>
+                </ul>
+            </li>
+    
+            <li><a href="Comics.html">
+                    <img src="https://i.postimg.cc/bYRbyHJ4/draw.png" alt="">
+                    Комиксы
+                </a>
+            </li>
+    
+            <li class="separator-menu"></li>
+    
+            <li><a href="AboutUs.html#about-site">
+                    Подробности о сайте
+                </a>
+            </li>
+    
+            <li><a href="AboutUs.html#publish-work">
+                    Опубликовать работу
+                </a>
+            </li>
+    
+            <li><a href="AboutUs.html#guarantees">
+                    Гаранты
+                </a>
+            </li>
+    
+            <li class="separator-menu"></li>
+    
+            <li>
+                <a href="Document.html" class="has-submenu" onclick="toggleSubmenu(event)">
+                    <img src="https://i.postimg.cc/sDXB3kbZ/image.png" alt="">
+                    Документы
+                </a>
+                <ul class="submenu">
+                    <li><a href="Document.html#user-agreement" class="submenu-link">Соглашение</a></li>
+                    <li><a href="Document.html#usage-rules" class="submenu-link">Правила использования</a></li>
+                    <li><a href="Document.html#guaranteed-deals" class="submenu-link">Гарантийные сделки</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Основной контент -->
+    <main class="content-container">
+        <div class="rules-container">
+            <div class="terms-header">
+                <h1></h1>
+            </div>
+
+            <div class="terms-content">
+                <!-- Соглашение -->
+                <div id="user-agreement" class="terms-section">
+                    <h2>СОГЛАШЕНИЕ</h2>
+
+                    <h4>1. Общие положения</h4>
+                    <p><strong>1.1.</strong> Настоящее Соглашение регулирует отношения между администрацией сайта
+                        Artemisia (далее — «Платформа») и пользователем (далее — «Пользователь»).</p>
+                    <p><strong>1.2.</strong> Использование Платформы означает полное согласие с условиями Соглашения.
+                    </p>
+                    <p><strong>1.3.</strong> Платформа вправе изменять условия Соглашения и Правил с публикацией новой
+                        версии на сайте.</p>
+
+                    <div class="term-divider"></div>
+
+                    <h4>2. Термины</h4>
+                    <p><strong>2.1. Гарант</strong> — представитель Платформы, обеспечивающий безопасность сделок между
+                        пользователями.</p>
+                    <p><strong>2.2. Арбитраж</strong> — процедура разрешения споров Гарантом.</p>
+                    <p><strong>2.3. ТЗ (Техническое Задание)</strong> — требования Заказчика к работе, включая сроки,
+                        стиль и условия правок.</p>
+
+                    <div class="term-definition">
+                        <p><strong>COMMISSION ART</strong> - КММ - КОММИШКА - КОММИШЕН - арт на заказ</p>
+                        <p><strong>YCH</strong> - ЮЧ - шаблон с определённой позой персонажа/персонажей, по которому
+                            художник по заказу клиента создаёт полноценный арт</p>
+                        <p><strong>ADOPT</strong> - АДОПТ - персонаж на продажу</p>
+                    </div>
+
+                    <div class="term-divider"></div>
+
+                    <h4>3. Условия использования</h4>
+                    <p><strong>3.1.</strong> Пользователь обязуется:</p>
+                    <ul>
+                        <li>Не нарушать авторские права</li>
+                        <li>Не размещать незаконный контент</li>
+                        <li>Не использовать Платформу для мошенничества</li>
+                    </ul>
+                    <p><strong>3.2.</strong> Платформа вправе удалять контент и блокировать аккаунты за нарушения.</p>
+
+                    <div class="term-divider"></div>
+
+                    <h4>4. Гарант сделок</h4>
+                    <p><strong>4.1.</strong> Услуга Гаранта доступна для:</p>
+                    <ul>
+                        <li>Заказа художественных работ</li>
+                        <li>Покупки цифровых товаров</li>
+                    </ul>
+                    <p><strong>4.2.</strong> Гарант:</p>
+                    <ul>
+                        <li>Фиксирует условия сделки (сумму, сроки, ТЗ)</li>
+                        <li>Проверяет выполнение обязательств</li>
+                        <li>Решает споры через арбитраж</li>
+                    </ul>
+                    <p><strong>4.3.</strong> Комиссия за услугу Гаранта указывается при создании сделки (5-15%)</p>
+
+                    <div class="term-divider"></div>
+
+                    <h4>5. Ответственность</h4>
+                    <p><strong>5.1.</strong> Платформа не несёт ответственности за:</p>
+                    <ul>
+                        <li>Сделки без участия Гаранта</li>
+                        <li>Некорректное ТЗ, которое привело к спору</li>
+                    </ul>
+                </div>
+
+                <!-- Правила использования -->
+                <div id="usage-rules" class="terms-section">
+                    <h2>ПРАВИЛА ИСПОЛЬЗОВАНИЯ</h2>
+
+                    <h4>1. Услуги</h4>
+                    <p><strong>1.1.</strong> Запрещено:</p>
+                    <ul>
+                        <li>Продавать, выкладывать и предлагать услуги не связанные с тематикой Платформы</li>
+                    </ul>
+
+                    <div class="term-divider"></div>
+
+                    <h4>2. Размещение контента</h4>
+                    <p><strong>2.1.</strong> Разрешено:</p>
+                    <ul>
+                        <li>Оригинальные работы</li>
+                        <li>Контент 18+ с маркировкой для Prem</li>
+                    </ul>
+                    <p><strong>2.2.</strong> Запрещено:</p>
+                    <ul>
+                        <li>Плагиат, реклама, экстремизм</li>
+                        <li>Обводка</li>
+                        <li>Использование ИИ</li>
+                    </ul>
+
+                    <div class="term-divider"></div>
+
+                    <h4>3. Гарантированные сделки</h4>
+                    <p><strong>3.1.</strong> Для Заказчиков:</p>
+                    <ul>
+                        <li>Оплата через Гаранта защищает от мошенничества</li>
+                        <li>Можно запросить арбитраж при несоответствии работы ТЗ</li>
+                    </ul>
+                    <p><strong>3.2.</strong> Для Исполнителей:</p>
+                    <ul>
+                        <li>Гарант подтверждает оплату перед началом работы</li>
+                        <li>Средства перечисляются после приемки</li>
+                    </ul>
+
+                    <div class="term-divider"></div>
+
+                    <h4>4. Арбитраж</h4>
+                    <p><strong>4.1.</strong> Основания для арбитража:</p>
+                    <ul>
+                        <li>Нарушение ТЗ</li>
+                        <li>Просрочка</li>
+                        <li>Плагиат</li>
+                        <li>Обводка</li>
+                        <li>Использование ИИ</li>
+                    </ul>
+                    <p><strong>4.2.</strong> Доказательства:</p>
+                    <ul>
+                        <li>Переписка</li>
+                        <li>Исходные файлы</li>
+                    </ul>
+                    <p><strong>4.3.</strong> Решение Гаранта обязательно к исполнению.</p>
+
+                    <div class="term-divider"></div>
+
+                    <h4>5. Комиссия</h4>
+                    <p><strong>5.1.</strong> Взимается за услуги Гаранта (% от суммы сделки) (5-15%)</p>
+                </div>
+
+                <!-- Гарантийные сделки -->
+                <div id="guaranteed-deals" class="terms-section">
+                    <h2>ПРАВИЛА ГАРАНТИЙНЫХ СДЕЛОК</h2>
+
+                    <h4>1. Создание сделки</h4>
+                    <p><strong>1.1.</strong> Обязательно указание:</p>
+                    <ul>
+                        <li>Точной суммы</li>
+                        <li>Детального ТЗ</li>
+                        <li>Сроков</li>
+                    </ul>
+
+                    <div class="term-divider"></div>
+
+                    <h4>2. Процесс выполнения</h4>
+                    <p><strong>2.1.</strong> Исполнитель загружает работу в систему</p>
+                    <p><strong>2.2.</strong> Заказчик проверяет соответствие ТЗ</p>
+
+                    <div class="term-divider"></div>
+
+                    <h4>3. Автоприемка</h4>
+                    <p><strong>3.1.</strong> Если Заказчик не ответил за 3 дня — работа считается принятой</p>
+
+                    <div class="term-divider"></div>
+
+                    <h4>4. Споры</h4>
+                    <p><strong>4.1.</strong> При арбитраже Гарант учитывает:</p>
+                    <ul>
+                        <li>Чёткость ТЗ</li>
+                        <li>Факт нарушения сроков</li>
+                        <li>Доказательства сторон</li>
+                    </ul>
+
+                    <div class="update-date">Дата изменения: 06.04.2025</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <a href="../index.html" class="footer-logo-link">
+                    <img src="https://i.postimg.cc/hjBzgfqS/1.png" alt="Artemisia" class="footer-logo">
+                </a>
+            </div>
+
+            <div class="footer-links">
+                <a href="AboutUs.html#about-site" class="footer-link">Подробности о сайте</a>
+                <a href="https://t.me/Artemisia_publication_bot" class="footer-link">Опубликовать работу</a>
+                <a href="https://t.me/Gg00Se" class="footer-link">Связь с гарантом</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="update-text">
+                Следите за обновлениями
+                <a href="https://t.me/Artemisia_website" class="update-link" target="_blank">@Artemisia</a>
+            </p>
+        </div>
+    </footer>
+    
+    <div id="backToTopBtn" class="back-to-top-btn" onclick="scrollToTop()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" width="24px" height="24px">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+        </svg>
+    </div>
+
+    <script>
+        // Функции для меню и поиска
+        let scrollPosition = 0;
+
+        function toggleMenu() {
+            const drawer = document.getElementById('drawer');
+            const overlay = document.getElementById('overlay');
+            const menuIcon = document.getElementById('menuIcon');
+            const body = document.body;
+
+            if (!body.classList.contains('menu-open')) {
+                // Сохраняем позицию скролла
+                scrollPosition = window.pageYOffset;
+                body.style.top = `-${scrollPosition}px`;
+                body.classList.add('menu-open');
+            } else {
+                // Восстанавливаем позицию скролла
+                body.classList.remove('menu-open');
+                body.style.top = '';
+                window.scrollTo(0, scrollPosition);
+            }
+
+            drawer.classList.toggle('open');
+            overlay.classList.toggle('active');
+            menuIcon.classList.toggle('active');
+        }
+
+        function toggleSubmenu(event) {
+            // Для элементов с подменю предотвращаем переход по ссылке
+            if (event.currentTarget.classList.contains('has-submenu')) {
+                event.preventDefault();
+            }
+            const submenu = event.currentTarget.nextElementSibling;
+            submenu.classList.toggle('active');
+            event.currentTarget.classList.toggle('active');
+        }
+
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                // Закрываем меню
+                toggleMenu();
+                // Плавная прокрутка к секции
+                setTimeout(() => {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }, 300);
+            }
+        }
+
+        function toggleSearch() {
+            console.log("Поиск отключен");
+        }
+
+        // Back to Top Function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide back to top button on scroll
+        window.addEventListener('scroll', function () {
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            backToTopBtn.style.display = 'flex';
+
+            // Обработка хэша URL при загрузке страницы
+            if (window.location.hash) {
+                const hash = window.location.hash.substring(1);
+                setTimeout(() => {
+                    const element = document.getElementById(hash);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 300);
+            }
+        });
+
+        // Обработка кликов по ссылкам в меню
+        document.querySelectorAll('.menu a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                // Если это ссылка с подменю, не обрабатываем стандартное поведение
+                if (this.classList.contains('has-submenu')) {
+                    return;
+                }
+                
+                // Если это ссылка на якорь на текущей странице
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const hash = this.getAttribute('href').substring(1);
+                    scrollToSection(hash);
+                }
+                
+                // Для обычных ссылок меню закрывается перед переходом
+                toggleMenu();
+            });
+        });
+    </script>
+</body>
+</html>

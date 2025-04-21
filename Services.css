@@ -763,10 +763,10 @@ header {
     }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 600px) {
 
     .anime-section img {
-        max-height: 380px;
+        max-height: 400px;
     }
 
     .anime-section .text h3 {
@@ -790,10 +790,17 @@ header {
     }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 490px) {
     .anime-section img {
 
-        max-height: 280px;
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 400px) {
+    .anime-section img {
+
+        max-height: 220px;
     }
 
     .anime-section .text h3 {
@@ -818,11 +825,6 @@ header {
 }
 
 @media (max-width: 330px) {
-
-
-    .anime-section img {
-        max-height: 180px;
-    }
 
     .anime-section .text h3 {
         font-size: 18px;

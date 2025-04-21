@@ -157,6 +157,7 @@
             </button>
             <div class="filters-dropdown" id="filtersDropdown">
                 <a href="#" onclick="applyFilter('all', event)" class="active-filter">Все стили</a>
+                <a href="#" onclick="applyFilter('prem', event)">Prem Artist</a>
             </div>
         </div>
     </section>
@@ -166,7 +167,7 @@
 
         <!-- Nance -->
         <section>
-            <section class="profile-section" data-style="Семириализм"
+            <section class="profile-section" data-style="Семириализм" data-prem="true"
                 style="background-image: linear-gradient(to right, rgba(30, 30, 30, 0.85), rgba(30, 30, 30, 0.9)), url('https://i.postimg.cc/dtmWKyP0/photo-5371044212570712674-y.jpg')">
                 <div class="avatar-container" onclick="window.location.href='../html/Nance.html'">
                     <div class="avatar-border"></div>
@@ -182,6 +183,7 @@
                         <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram" class="profile-link-icon">
                     </a>
                     <p>Стиль: Семириализм</p>
+                   
 
                     <div class="social-links">
                         <!-- ВКонтакте -->
@@ -748,8 +750,6 @@
             resultsContainer.classList.add('active');
         }
 
-
-
         // Highlight text
         function highlightText(element, searchText) {
             const text = element.textContent;
@@ -891,6 +891,16 @@
             };
             filterDropdown.appendChild(allItem);
 
+            // Add "Prem Artist" filter
+            const premItem = document.createElement('a');
+            premItem.href = '#';
+            premItem.textContent = 'Prem Artist';
+            premItem.onclick = (e) => {
+                applyFilter('prem', e);
+                updateActiveFilter(e.target);
+            };
+            filterDropdown.appendChild(premItem);
+
             // Add filters for each style
             styles.forEach(style => {
                 const item = document.createElement('a');
@@ -916,16 +926,19 @@
 
             document.querySelectorAll('.profile-section').forEach(profile => {
                 const style = profile.getAttribute('data-style');
+                const isPrem = profile.getAttribute('data-prem') === 'true';
+                const nextElements = getNextElements(profile);
 
-                if (selectedStyle === 'all' || style === selectedStyle) {
+                if (selectedStyle === 'all' || 
+                    (selectedStyle === 'prem' && isPrem) || 
+                    (selectedStyle !== 'prem' && style === selectedStyle)) {
                     profile.classList.remove('hidden');
-                    // Show related elements (carousel and title)
-                    const nextElements = getNextElements(profile);
-                    nextElements.forEach(el => el.classList.remove('hidden'));
+                    nextElements.forEach(el => {
+                        el.classList.remove('hidden');
+                        el.style.transitionDelay = '0.2s';
+                    });
                 } else {
                     profile.classList.add('hidden');
-                    // Hide related elements
-                    const nextElements = getNextElements(profile);
                     nextElements.forEach(el => el.classList.add('hidden'));
                 }
             });
@@ -1269,9 +1282,12 @@
 
             document.querySelectorAll('.profile-section').forEach(profile => {
                 const style = profile.getAttribute('data-style');
+                const isPrem = profile.getAttribute('data-prem') === 'true';
                 const nextElements = getNextElements(profile);
 
-                if (selectedStyle === 'all' || style === selectedStyle) {
+                if (selectedStyle === 'all' || 
+                    (selectedStyle === 'prem' && isPrem) || 
+                    (selectedStyle !== 'prem' && style === selectedStyle)) {
                     profile.classList.remove('hidden');
                     nextElements.forEach(el => {
                         el.classList.remove('hidden');

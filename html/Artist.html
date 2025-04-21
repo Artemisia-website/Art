@@ -921,34 +921,7 @@
             clickedElement.classList.add('active-filter');
         }
 
-        function applyFilter(selectedStyle, event) {
-            event.preventDefault();
-
-            document.querySelectorAll('.profile-section').forEach(profile => {
-                const style = profile.getAttribute('data-style');
-                const isPrem = profile.getAttribute('data-prem') === 'true';
-                const nextElements = getNextElements(profile);
-
-                if (selectedStyle === 'all' || 
-                    (selectedStyle === 'prem' && isPrem) || 
-                    (selectedStyle !== 'prem' && style === selectedStyle)) {
-                    profile.classList.remove('hidden');
-                    nextElements.forEach(el => {
-                        el.classList.remove('hidden');
-                        el.style.transitionDelay = '0.2s';
-                    });
-                } else {
-                    profile.classList.add('hidden');
-                    nextElements.forEach(el => el.classList.add('hidden'));
-                }
-            });
-
-            // Smooth scroll to top after applying filter
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
+    
 
         function getNextElements(element) {
             const elements = [];
@@ -1279,7 +1252,10 @@
         // Модифицируем функцию фильтрации
         function applyFilter(selectedStyle, event) {
             event.preventDefault();
-
+            
+            // Закрываем фильтры после выбора
+            closeFilters();
+            
             document.querySelectorAll('.profile-section').forEach(profile => {
                 const style = profile.getAttribute('data-style');
                 const isPrem = profile.getAttribute('data-prem') === 'true';
@@ -1299,11 +1275,20 @@
                 }
             });
 
-            // Плавный скролл к верху
+            // Smooth scroll to top after applying filter
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
+        }
+
+        function closeFilters() {
+            const filtersDropdown = document.getElementById('filtersDropdown');
+            const filtersButton = document.querySelector('.filters-button');
+            
+            filtersDropdown.classList.remove('active');
+            filtersButton.classList.remove('active');
+            document.removeEventListener('click', closeFiltersOnClickOutside);
         }
 
         // Обновим функцию для модальных окон

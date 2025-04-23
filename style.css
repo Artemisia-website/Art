@@ -2044,17 +2044,7 @@ body.menu-open {
     width: 100%;
 }
 
-.subscription-title::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50%;
-    height: 3px;
-    background: linear-gradient(90deg, #ffcc00, transparent);
-    border-radius: 3px;
-}
+
 
 .subscription-cards {
     display: flex;

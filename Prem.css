@@ -285,7 +285,7 @@ body.no-scroll {
 .profile-header {
     position: relative;
     height: 300px;
-    background: url('https://i.postimg.cc/dtmWKyP0/photo-5371044212570712674-y.jpg') center/cover no-repeat;
+   
     display: flex;
     align-items: flex-end;
     background-blend-mode: overlay;

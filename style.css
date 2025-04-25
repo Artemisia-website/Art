@@ -2319,3 +2319,8 @@ body.menu-open {
         padding: 15px;
     }
 }
+
+.works-inner, .artists-inner {
+    will-change: transform; /* Оптимизация для аппаратного ускорения */
+    touch-action: pan-y; /* Улучшение обработки касаний на мобильных */
+}

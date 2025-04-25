@@ -247,11 +247,14 @@
                         </div>
                         <div class="artist-info">
                             <h3>ArfoniaA</h3>
-                            <a href="https://t.me/The_forbidden_fruit_is_sweet" class="artist-username" target="_blank">  @The_forbidden_fruit_is_sweet</a>
+                            <a href="https://t.me/The_forbidden_fruit_is_sweet" class="artist-username" target="_blank">
+                                @The_forbidden_fruit_is_sweet</a>
                             <p class="artist-style">Авторский</p>
                             <div class="artist-social-links">
-                                <a href="https://t.me/Viktoria_secret08" class="social-link" target="_blank" title="Telegram">
-                                    <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram" class="social-icon">
+                                <a href="https://t.me/Viktoria_secret08" class="social-link" target="_blank"
+                                    title="Telegram">
+                                    <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram"
+                                        class="social-icon">
                                 </a>
                             </div>
                         </div>
@@ -1016,96 +1019,106 @@
                     isDragging: false,
                     startPos: 0,
                     animationID: 0,
-                    currentIndex: 0
+                    currentIndex: 0,
+                    velocity: 0,
+                    lastTime: 0,
+                    lastPos: 0
                 };
             }
-
 
             const worksInner = document.getElementById(worksInnerId);
             const isArtistCarousel = worksInner.classList.contains('artists-inner');
             const items = worksInner.querySelectorAll(isArtistCarousel ? '.artist-card' : '.work-thumb, .work-thumb-1, .work-thumb-2, .work-thumb-3');
 
-            // Add event handlers for mouse
-            worksInner.addEventListener('mousedown', (e) => {
-                const state = carouselStates[worksInnerId];
-                state.isDragging = true;
-                state.startPos = e.clientX;
-                state.prevTranslate = state.currentTranslate;
-                state.animationID = requestAnimationFrame(() => animation(worksInnerId));
-                worksInner.style.cursor = 'grabbing';
-                worksInner.style.transition = 'none';
-            });
+            // Добавляем transition для плавности
+            worksInner.style.transition = 'transform 0.3s ease-out';
 
-            window.addEventListener('mousemove', (e) => {
-                const state = carouselStates[worksInnerId];
-                if (!state.isDragging) return;
-                const currentPosition = e.clientX;
-                state.currentTranslate = state.prevTranslate + currentPosition - state.startPos;
-
-                // Limit movement on mobile
-                if (window.innerWidth <= 768) {
-                    const maxTranslate = 0;
-                    const minTranslate = -getMaxTranslate(worksInnerId);
-                    state.currentTranslate = Math.max(minTranslate, Math.min(maxTranslate, state.currentTranslate));
-                }
-            });
-
-            window.addEventListener('mouseup', () => {
-                const state = carouselStates[worksInnerId];
-                if (!state.isDragging) return;
-                state.isDragging = false;
-                cancelAnimationFrame(state.animationID);
-                worksInner.style.cursor = 'grab';
-
-                const movedBy = state.currentTranslate - state.prevTranslate;
-                const visibleItems = getVisibleItemsCount(worksInnerId);
-
-                if (movedBy < -100) nextWork(worksInnerId, 1);
-                else if (movedBy > 100) prevWork(worksInnerId, 1);
-                else setPosition(worksInnerId);
-
-                worksInner.style.transition = 'transform 0.5s ease';
-            });
-
-            // Touch events
+            // Touch events для мобильных устройств
             worksInner.addEventListener('touchstart', (e) => {
                 const state = carouselStates[worksInnerId];
                 state.isDragging = true;
                 state.startPos = e.touches[0].clientX;
                 state.prevTranslate = state.currentTranslate;
-                state.animationID = requestAnimationFrame(() => animation(worksInnerId));
+                state.lastPos = state.startPos;
+                state.lastTime = performance.now();
+                state.velocity = 0;
+
+                // Отключаем transition во время драга
                 worksInner.style.transition = 'none';
             });
 
-            window.addEventListener('touchmove', (e) => {
+            worksInner.addEventListener('touchmove', (e) => {
                 const state = carouselStates[worksInnerId];
                 if (!state.isDragging) return;
-                const currentPosition = e.touches[0].clientX;
-                state.currentTranslate = state.prevTranslate + currentPosition - state.startPos;
 
-                // Limit movement on mobile
-                if (window.innerWidth <= 768) {
-                    const maxTranslate = 0;
-                    const minTranslate = -getMaxTranslate(worksInnerId);
-                    state.currentTranslate = Math.max(minTranslate, Math.min(maxTranslate, state.currentTranslate));
+                const currentPos = e.touches[0].clientX;
+                const currentTime = performance.now();
+                const deltaTime = currentTime - state.lastTime;
+
+                if (deltaTime > 0) {
+                    state.velocity = (currentPos - state.lastPos) / deltaTime;
+                    state.lastPos = currentPos;
+                    state.lastTime = currentTime;
                 }
+
+                state.currentTranslate = state.prevTranslate + currentPos - state.startPos;
+
+                // Ограничиваем движение границами
+                const maxTranslate = 0;
+                const minTranslate = -getMaxTranslate(worksInnerId);
+                state.currentTranslate = Math.max(minTranslate, Math.min(maxTranslate, state.currentTranslate));
+
+                setPosition(worksInnerId);
             });
 
-            window.addEventListener('touchend', () => {
+            worksInner.addEventListener('touchend', () => {
                 const state = carouselStates[worksInnerId];
                 if (!state.isDragging) return;
                 state.isDragging = false;
-                cancelAnimationFrame(state.animationID);
 
-                const movedBy = state.currentTranslate - state.prevTranslate;
-                const visibleItems = getVisibleItemsCount(worksInnerId);
+                // Включаем transition для плавного завершения
+                worksInner.style.transition = 'transform 0.3s ease-out';
 
-                if (movedBy < -100) nextWork(worksInnerId, 1);
-                else if (movedBy > 100) prevWork(worksInnerId, 1);
-                else setPosition(worksInnerId);
+                // Применяем инерцию, если скорость достаточно высока
+                if (Math.abs(state.velocity) > 0.2) {
+                    const direction = state.velocity > 0 ? -1 : 1;
+                    const distance = Math.min(200, Math.abs(state.velocity * 200));
 
-                worksInner.style.transition = 'transform 0.5s ease';
+                    state.currentTranslate += distance * direction;
+
+                    // Ограничиваем движение границами
+                    const maxTranslate = 0;
+                    const minTranslate = -getMaxTranslate(worksInnerId);
+                    state.currentTranslate = Math.max(minTranslate, Math.min(maxTranslate, state.currentTranslate));
+
+                    setPosition(worksInnerId);
+                }
+
+                // Корректируем позицию после инерции
+                setTimeout(() => {
+                    snapToNearestItem(worksInnerId);
+                }, 300);
             });
+
+            // Функция для привязки к ближайшему элементу
+            function snapToNearestItem(worksInnerId) {
+                const state = carouselStates[worksInnerId];
+                const worksInner = document.getElementById(worksInnerId);
+                const isArtistCarousel = worksInner.classList.contains('artists-inner');
+                const items = worksInner.querySelectorAll(isArtistCarousel ? '.artist-card' : '.work-thumb, .work-thumb-1, .work-thumb-2, .work-thumb-3');
+
+                if (items.length === 0) return;
+
+                const itemWidth = isArtistCarousel ? items[0].offsetWidth + 30 : items[0].offsetWidth + 20;
+                const newIndex = Math.round(-state.currentTranslate / itemWidth);
+                const maxIndex = items.length - getVisibleItemsCount(worksInnerId);
+
+                state.currentIndex = Math.max(0, Math.min(maxIndex, newIndex));
+                state.currentTranslate = -state.currentIndex * itemWidth;
+
+                setPosition(worksInnerId);
+                updateCarouselControls(worksInnerId);
+            }
         }
 
         // Функция для обновления состояния кнопок управления
@@ -1172,7 +1185,11 @@
         function setPosition(worksInnerId) {
             const state = carouselStates[worksInnerId];
             const worksInner = document.getElementById(worksInnerId);
-            worksInner.style.transform = `translateX(${state.currentTranslate}px)`;
+
+            // Используем requestAnimationFrame для плавности
+            requestAnimationFrame(() => {
+                worksInner.style.transform = `translateX(${state.currentTranslate}px)`;
+            });
         }
 
         function getVisibleWorksCount(worksInnerId) {

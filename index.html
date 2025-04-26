@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Artemisia</title>
+    <title>Artemisia</title>
     <link rel="icon" href="https://i.postimg.cc/zXXhVbHv/11.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -231,7 +231,7 @@
                                 </a>
 
                                 <!-- ТТ -->
-                                <a href="https://www.tiktok.com/@nensn5_?_r=1&_d=eh83e1547be7il&sec_uid=MS4wLjABAAAALrSTNSIkiV3xErVnI8sQb01Iq5GX5Wgzt9JG01gcoeR26mXUpDDsdnpmqAcroE_f&share_author_id=7400529780627833861&sharer_language=ru&source=h5_m&u_code=efg187216geel8&ug_btm=b8727,b0&social_share_type=4&utm_source=copy&sec_user_id=MS4wLjABAAAALrSTNSIkiV3xErVnI8sQb01Iq5GX5Wgzt9JG01gcoeR26mXUpDDsdnpmqAcroE_f&tt_from=copy&utm_medium=ios&utm_campaign=client_share&enable_checksum=1&user_id=7400529780627833861&share_link_id=E15C10FC-48FE-40F5-BA15-A724E6FDC3CC&share_app_id=1233"
+                                <a href="https://www.tiktok.com/@nensn5_?_r=1&_d=eh83e1547be7il&sec_uid=MS4wLjABAAAALrSTNSIkiV3xErVnI8sQb01Iq5GX5Wgzt9JG01gcoeR26mXUpDDsdnpmqAcroE_f&share_author_id=7400529780627833861&sharer_language=ru&source=h5_m&u_code=efg187216geel8&ug_btm=b8727,b0&social_share_type=4&utm_source=copy&utm_medium=ios&utm_campaign=client_share&enable_checksum=1&user_id=7400529780627833861&share_link_id=E15C10FC-48FE-40F5-BA15-A724E6FDC3CC&share_app_id=1233"
                                     class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                                     <img src="https://i.postimg.cc/sD6hSj5c/free-icon-video-13670382.png" alt="YouTube"
                                         width="32" height="32" loading="lazy" class="social-icon">
@@ -528,186 +528,161 @@
             </div>
 
             <div class="illustrators-filters">
-                <button class="illustrator-filter-btn" onclick="changeIllustratorFilter('week')">Неделя</button>
+                <button class="illustrator-filter-btn active" onclick="changeIllustratorFilter('week')">Неделя</button>
                 <button class="illustrator-filter-btn" onclick="changeIllustratorFilter('month')">Месяц</button>
             </div>
         </div>
 
         <div class="illustrators-grid" id="illustratorsGrid">
-
             <!-- Иллюстраторы недели (4 видимых + 4 скрытых) -->
-            <div class="illustrator-card-v2 week"
-                onclick="openImageModal('https://i.postimg.cc/RZLNMLsc/photo-5193146667170393714-y.jpg')">
+            <div class="illustrator-card-v2 week" onclick="openImageModal('https://i.postimg.cc/RZLNMLsc/photo-5193146667170393714-y.jpg')">
                 <div class="illustrator-image-container">
-                    <img src="https://i.postimg.cc/RZLNMLsc/photo-5193146667170393714-y.jpg" alt=""
-                        class="illustrator-image">
+                    <img src="https://i.postimg.cc/RZLNMLsc/photo-5193146667170393714-y.jpg" alt="" class="illustrator-image">
                 </div>
                 <div class="illustrator-info">
                     <h3 class="illustrator-name">
-                        <img src="https://i.postimg.cc/V6x7z9kJ/photo-5276041150890895665-x-1.jpg"
-                            class="illustrator-avatar" alt="Ава">
+                        <a href="html/Nance.html" onclick="event.stopPropagation()">
+                            <img src="https://i.postimg.cc/V6x7z9kJ/photo-5276041150890895665-x-1.jpg" class="illustrator-avatar" alt="Ава">
+                        </a>
                         Nance
                     </h3>
                     <p class="illustrator-style">"Бунт против AI"</p>
                     <p class="illustrator-style">#starterpacknoai</p>
                     <div class="illustrator-stats">
                         <div class="illustrator-likes">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                             </svg>
-
+                          
                         </div>
                         <div class="illustrator-price"></div>
                     </div>
                 </div>
             </div>
 
-            <div class="illustrator-card-v2 week"
-                onclick="openImageModal('https://i.postimg.cc/RhHkvGR9/photo-5190480205444151713-y.jpg')">
+            <div class="illustrator-card-v2 week" onclick="openImageModal('https://i.postimg.cc/RhHkvGR9/photo-5190480205444151713-y.jpg')">
                 <div class="illustrator-image-container">
-                    <img src="https://i.postimg.cc/RhHkvGR9/photo-5190480205444151713-y.jpg" alt="Художник 6"
-                        class="illustrator-image">
+                    <img src="https://i.postimg.cc/RhHkvGR9/photo-5190480205444151713-y.jpg" alt="Художник 6" class="illustrator-image">
                 </div>
                 <div class="illustrator-info">
                     <h3 class="illustrator-name">
-                        <img src="https://i.postimg.cc/j2wv1kyc/photo-5273922907380248156-c.jpg"
-                            class="illustrator-avatar" alt="Ава">
+                        <a href="html/Artist.html#milcroquis" onclick="event.stopPropagation()">
+                            <img src="https://i.postimg.cc/j2wv1kyc/photo-5273922907380248156-c.jpg" class="illustrator-avatar" alt="Ава">
+                        </a>
                         Milcroquis
                     </h3>
-                    <p class="illustrator-style">Облако в штанах </p>
-                    <p class="illustrator-style">В.В. Маяковский </p>
-                    <p class="illustrator-style"></p>
+                    <p class="illustrator-style">Облако в штанах</p>
+                    <p class="illustrator-style">В.В. Маяковский</p>
                     <div class="illustrator-stats">
                         <div class="illustrator-likes">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                             </svg>
-
-                        </div>
-                        <div class="illustrator-price"> </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="illustrator-card-v2 week hidden-illustrators"
-                onclick="openImageModal('https://i.postimg.cc/Gh1XVbZH/photo-5467614095499980869-y.jpg')">
-                <div class="illustrator-image-container">
-                    <img src="https://i.postimg.cc/Gh1XVbZH/photo-5467614095499980869-y.jpg" alt="Художник 9"
-                        class="illustrator-image">
-                </div>
-                <div class="illustrator-info">
-                    <h3 class="illustrator-name">
-                        <img src="https://i.postimg.cc/j2wv1kyc/photo-5273922907380248156-c.jpg"
-                            class="illustrator-avatar" alt="Ава">
-                        Milcroquis
-                    </h3>
-                    <p class="illustrator-style">"Одна так нежно розовеет,
-                        Как дева, милым смущена…"</p>
-                    <p class="illustrator-style">Н. Гумилев </p>
-                    <div class="illustrator-stats">
-                        <div class="illustrator-likes">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                            </svg>
-
+                            
                         </div>
                         <div class="illustrator-price"></div>
                     </div>
                 </div>
             </div>
 
-
+            <div class="illustrator-card-v2 week hidden-illustrators" onclick="openImageModal('https://i.postimg.cc/Gh1XVbZH/photo-5467614095499980869-y.jpg')">
+                <div class="illustrator-image-container">
+                    <img src="https://i.postimg.cc/Gh1XVbZH/photo-5467614095499980869-y.jpg" alt="Художник 9" class="illustrator-image">
+                </div>
+                <div class="illustrator-info">
+                    <h3 class="illustrator-name">
+                        <a href="html/Artist.html#milcroquis" onclick="event.stopPropagation()">
+                            <img src="https://i.postimg.cc/j2wv1kyc/photo-5273922907380248156-c.jpg" class="illustrator-avatar" alt="Ава">
+                        </a>
+                        Milcroquis
+                    </h3>
+                    <p class="illustrator-style">"Одна так нежно розовеет,<br>Как дева, милым смущена…"</p>
+                    <p class="illustrator-style">Н. Гумилев</p>
+                    <div class="illustrator-stats">
+                        <div class="illustrator-likes">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                            </svg>
+                            
+                        </div>
+                        <div class="illustrator-price"></div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Иллюстраторы месяца (4 видимых + 4 скрытых) -->
-            <div class="illustrator-card-v2 month"
-                onclick="openImageModal('https://i.postimg.cc/YCLjFwCz/photo-5460828919050661240-y.jpg')">
+            <div class="illustrator-card-v2 month" onclick="openImageModal('https://i.postimg.cc/YCLjFwCz/photo-5460828919050661240-y.jpg')">
                 <div class="illustrator-badge">Топ месяца</div>
                 <div class="illustrator-image-container">
-                    <img src="https://i.postimg.cc/YCLjFwCz/photo-5460828919050661240-y.jpg" alt="UWI"
-                        class="illustrator-image">
+                    <img src="https://i.postimg.cc/YCLjFwCz/photo-5460828919050661240-y.jpg" alt="UWI" class="illustrator-image">
                 </div>
                 <div class="illustrator-info">
                     <h3 class="illustrator-name">
-                        <img src="https://i.postimg.cc/528pmQpJ/photo-5404475215800560744-c.jpg"
-                            class="illustrator-avatar" alt="Ава">
+                        <a href="html/Artist.html#din_don" onclick="event.stopPropagation()">
+                            <img src="https://i.postimg.cc/528pmQpJ/photo-5404475215800560744-c.jpg" class="illustrator-avatar" alt="Ава">
+                        </a>
                         Din_Don
                     </h3>
                     <p class="illustrator-style">Аниме • Персонажи</p>
                     <div class="illustrator-stats">
                         <div class="illustrator-likes">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                             </svg>
-
+                          
                         </div>
                         <div class="illustrator-price"></div>
                     </div>
                 </div>
             </div>
 
-            <div class="illustrator-card-v2 month"
-                onclick="openImageModal('https://i.postimg.cc/WbC1TfwF/photo-5434111619719360801-y.jpg')">
+            <div class="illustrator-card-v2 month" onclick="openImageModal('https://i.postimg.cc/WbC1TfwF/photo-5434111619719360801-y.jpg')">
                 <div class="illustrator-image-container">
-                    <img src="https://i.postimg.cc/WbC1TfwF/photo-5434111619719360801-y.jpg" alt="Художник 7"
-                        class="illustrator-image">
+                    <img src="https://i.postimg.cc/WbC1TfwF/photo-5434111619719360801-y.jpg" alt="Художник 7" class="illustrator-image">
                 </div>
                 <div class="illustrator-info">
                     <h3 class="illustrator-name">
-                        <img src="https://i.postimg.cc/V6x7z9kJ/photo-5276041150890895665-x-1.jpg"
-                            class="illustrator-avatar" alt="Ава">
+                        <a href="html/Nance.html" onclick="event.stopPropagation()">
+                            <img src="https://i.postimg.cc/V6x7z9kJ/photo-5276041150890895665-x-1.jpg" class="illustrator-avatar" alt="Ава">
+                        </a>
                         Nance
                     </h3>
                     <p class="illustrator-style">Аниме • Персонажи</p>
                     <div class="illustrator-stats">
                         <div class="illustrator-likes">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                             </svg>
-
+                         
                         </div>
                         <div class="illustrator-price"></div>
                     </div>
                 </div>
             </div>
 
-            <div class="illustrator-card-v2 month hidden-illustrators"
-                onclick="openImageModal('https://i.postimg.cc/Pqkf8pcd/photo-5445068089881389170-y.jpg')">
+            <div class="illustrator-card-v2 month hidden-illustrators" onclick="openImageModal('https://i.postimg.cc/Pqkf8pcd/photo-5445068089881389170-y.jpg')">
                 <div class="illustrator-image-container">
-                    <img src="https://i.postimg.cc/Pqkf8pcd/photo-5445068089881389170-y.jpg" alt="Художник 11"
-                        class="illustrator-image">
+                    <img src="https://i.postimg.cc/Pqkf8pcd/photo-5445068089881389170-y.jpg" alt="Художник 11" class="illustrator-image">
                 </div>
                 <div class="illustrator-info">
                     <h3 class="illustrator-name">
-                        <img src="https://i.postimg.cc/j2wv1kyc/photo-5273922907380248156-c.jpg"
-                            class="illustrator-avatar" alt="Ава">
+                        <a href="html/Artist.html#milcroquis" onclick="event.stopPropagation()">
+                            <img src="https://i.postimg.cc/j2wv1kyc/photo-5273922907380248156-c.jpg" class="illustrator-avatar" alt="Ава">
+                        </a>
                         Milcroquis
                     </h3>
                     <p class="illustrator-style">Семириализм • Портреты</p>
                     <div class="illustrator-stats">
                         <div class="illustrator-likes">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                             </svg>
-
+                       
                         </div>
                         <div class="illustrator-price"></div>
                     </div>
                 </div>
             </div>
-
-
         </div>
 
         <button class="view-all-btn" id="viewAllBtn">Смотреть всех</button>
@@ -1161,7 +1136,6 @@
             }
         }
 
-
         function getVisibleItemsCount(worksInnerId) {
             const worksInner = document.getElementById(worksInnerId);
             const isArtistCarousel = worksInner.classList.contains('artists-inner');
@@ -1178,7 +1152,6 @@
                 return Math.floor(containerWidth / workWidth);
             }
         }
-
 
         function animation(worksInnerId) {
             setPosition(worksInnerId);
@@ -1209,7 +1182,6 @@
             const workWidth = works[0].offsetWidth + 20; // Work width + gap
             return Math.floor(containerWidth / workWidth);
         }
-
 
         function nextWork(worksInnerId, step = 1) {
             const worksInner = document.getElementById(worksInnerId);
@@ -1268,7 +1240,6 @@
             setPosition(worksInnerId);
             updateCarouselControls(worksInnerId);
         }
-
 
         // Modal Functions
         function openModal(modalId) {
@@ -1512,8 +1483,6 @@
         filterIllustrators('week');
         // Активируем кнопку "неделя"
         document.querySelector('.illustrator-filter-btn').classList.add('active');
-
-
 
         // Добавьте эти функции в ваш JavaScript
         function scrollToBottom() {

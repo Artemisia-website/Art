@@ -2324,3 +2324,152 @@ body.menu-open {
     will-change: transform; /* Оптимизация для аппаратного ускорения */
     touch-action: pan-y; /* Улучшение обработки касаний на мобильных */
 }
+
+/* Стили для карточки автозагрузки */
+.auto-upload-card {
+    background-color: #2C2C2C; /* Темно-серый фон */
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    color: #FFFFFF;
+    border: 1px solid #444;
+    position: relative;
+    overflow: hidden;
+}
+
+.auto-upload-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #FFD700; /* Желтая полоса сверху */
+}
+
+.auto-upload-left {
+    flex: 1;
+    padding-right: 30px;
+    position: relative;
+    z-index: 2;
+    border-right: 1px solid #444;
+}
+
+.auto-upload-right {
+    flex: 1.5;
+    position: relative;
+    z-index: 2;
+    padding-left: 30px;
+}
+
+.auto-upload-header {
+    margin-bottom: 25px;
+}
+
+.auto-upload-header h3 {
+    font-size: 24px;
+    margin: 15px 0 5px;
+    color: #FFD700; /* Желтый заголовок */
+    font-weight: 600;
+}
+
+.auto-upload-header p {
+    font-size: 15px;
+    margin: 0;
+    color: #AAA; /* Светло-серый текст */
+}
+
+.auto-upload-discount {
+    background-color: #FFD700; /* Желтый фон */
+    color: #2C2C2C; /* Темно-серый текст */
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.auto-upload-price {
+    margin: 25px 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #777;
+    font-size: 16px;
+    margin-right: 10px;
+    display: block;
+}
+
+.current-price {
+    font-size: 32px;
+    font-weight: bold;
+    color: #FFD700; /* Желтая цена */
+    display: block;
+    margin-top: 5px;
+}
+
+.auto-upload-btn {
+    display: inline-block;
+    background-color: #FFD700; /* Желтый фон */
+    color: #2C2C2C; /* Темно-серый текст */
+    padding: 12px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.auto-upload-btn:hover {
+    background-color: #FFC600;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 214, 0, 0.3);
+}
+
+.auto-upload-features {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.auto-upload-feature {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #EEE;
+}
+
+.auto-upload-feature svg {
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .auto-upload-card {
+        flex-direction: column;
+    }
+    
+    .auto-upload-left {
+        padding-right: 0;
+        margin-bottom: 25px;
+        border-right: none;
+        border-bottom: 1px solid #444;
+        padding-bottom: 25px;
+    }
+    
+    .auto-upload-right {
+        padding-left: 0;
+    }
+    
+    .auto-upload-feature {
+        font-size: 14px;
+    }
+}

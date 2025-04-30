@@ -305,7 +305,6 @@
             </div>
         </section>
 
-
         <!-- Nance -->
         <section id="nance">
             <section class="profile-section" data-style="Семириализм" data-prem="true"
@@ -404,6 +403,72 @@
                     <img src="https://i.postimg.cc/nrf1yH37/photo-5424785192725377476-y.jpg" class="modal-img"
                         alt="Работа 7">
 
+                </div>
+            </div>
+        </section>
+
+        <!-- reuloki -->
+        <section id="reuloki">
+            <section class="profile-section" data-style="Аниме">
+                <img src="https://i.postimg.cc/7LDGjQGT/photo-5339070225456426889-y.jpg" alt="Аватар" class="avatar">
+                <div class="profile-info">
+                    <h1> reuloki</h1>
+                    <a href="https://t.me/sakuranochan" class="profile-link">
+                        @sakuranochan
+                        <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram" class="profile-link-icon">
+                    </a>
+                    <p>Стиль: Аниме</p>
+                    <div class="social-links">
+                        <a href="https://t.me/reuloki" class="social-link" target="_blank" title="Telegram">
+                            <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram" class="social-icon">
+                        </a>
+                        <a href="https://vk.com/reuloki" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
+                            <img src="https://i.postimg.cc/cHhQbQ8q/image.png" alt="VK" width="32" height="32"
+                                loading="lazy" class="social-icon">
+                        </a>
+                        <a href="https://jp.pinterest.com/reuloki/?invite_code=949a381b7eff44dcbb610323173f3abd&sender=941534003255703246" class="social-link" target="_blank" rel="noopener noreferrer"
+                        aria-label="Pin">
+                        <img src="https://i.postimg.cc/T3B57t75/icons8-pinterest-48.png" alt="Pin" width="32"
+                            height="32" loading="lazy" class="social-icon">
+                    </a>
+                    </div>
+                </div>
+            </section>
+
+            <h2 class="favorite-works">Публикации автора</h2>
+            <div class="works-carousel" id="artist31Carousel">
+                <div class="works-inner" id="artist31Works">
+                    <img src="https://i.postimg.cc/zXsRFfq7/photo-5226791405152761283-y.jpg" class="work-thumb-2" alt="">
+                    <img src="https://i.postimg.cc/MKMQBBJX/photo-5226791405152761284-y.jpg" class="work-thumb-3" alt="">
+                    <img src="https://i.postimg.cc/85pvfnTV/photo-5226791405152761285-y.jpg" class="work-thumb-3" alt="">
+                    <img src="https://i.postimg.cc/76K23MLJ/photo-5226791405152761286-y.jpg" class="work-thumb-3" alt="">
+                    <img src="https://i.postimg.cc/GpJY21wQ/photo-5226791405152761287-y.jpg" class="work-thumb-3" alt="">
+                    <img src="https://i.postimg.cc/MZrBXD4h/photo-5334932892050126736-y.jpg" class="work-thumb-1" alt="">
+                    <img src="https://i.postimg.cc/dVGZHK1Y/photo-5350697170078134127-y.jpg" class="work-thumb-3" alt="">
+                    <img src="https://i.postimg.cc/Vv5bDrSG/photo-5433654532119848692-y.jpg" class="work-thumb-3" alt="">
+                    
+                </div>
+                <button class="works-control prev" onclick="prevWork('artist31Works')">&#10094;</button>
+                <button class="works-control next" onclick="nextWork('artist31Works')">&#10095;</button>
+            </div>
+            <button class="show-works-btn" onclick="openModal('modal31')">Ознакомиться со всеми работами</button>
+
+            <!-- Modal -->
+            <div id="modal31" class="modal">
+                <span class="close-btn" onclick="closeModal('modal31')">&times;</span>
+                <div class="modal-header">
+                    <h2>Галерея работ</h2>
+                </div>
+                <div class="modal-content">
+                    <img src="https://i.postimg.cc/zXsRFfq7/photo-5226791405152761283-y.jpg" class="modal-img" alt="">
+                    <img src="https://i.postimg.cc/MKMQBBJX/photo-5226791405152761284-y.jpg" class="modal-img" alt="">
+                    <img src="https://i.postimg.cc/85pvfnTV/photo-5226791405152761285-y.jpg" class="modal-img" alt="">
+                    <img src="https://i.postimg.cc/76K23MLJ/photo-5226791405152761286-y.jpg" class="modal-img" alt="">
+                    <img src="https://i.postimg.cc/GpJY21wQ/photo-5226791405152761287-y.jpg" class="modal-img" alt="">
+                    <img src="https://i.postimg.cc/MZrBXD4h/photo-5334932892050126736-y.jpg" class="modal-img" alt="">
+                    <img src="https://i.postimg.cc/dVGZHK1Y/photo-5350697170078134127-y.jpg" class="modal-img" alt="">
+                    <img src="https://i.postimg.cc/Vv5bDrSG/photo-5433654532119848692-y.jpg" class="modal-img" alt="">
+                   
                 </div>
             </div>
         </section>
@@ -3030,6 +3095,7 @@
             initCarousel('artist28Works');
             initCarousel('artist29Works');
             initCarousel('artist30Works');
+            initCarousel('artist31Works');
 
 
 

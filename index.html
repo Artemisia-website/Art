@@ -1084,7 +1084,7 @@
             const items = worksInner.querySelectorAll(isArtistCarousel ? '.artist-card' : '.work-thumb, .work-thumb-1, .work-thumb-2, .work-thumb-3');
 
             // Добавляем transition для плавности
-            worksInner.style.transition = 'transform 0.3s ease-out';
+            worksInner.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
 
             // Touch events для мобильных устройств
             worksInner.addEventListener('touchstart', (e) => {
@@ -1098,6 +1098,7 @@
 
                 // Отключаем transition во время драга
                 worksInner.style.transition = 'none';
+                cancelAnimationFrame(state.animationID);
             });
 
             worksInner.addEventListener('touchmove', (e) => {
@@ -1121,16 +1122,19 @@
                 const minTranslate = -getMaxTranslate(worksInnerId);
                 state.currentTranslate = Math.max(minTranslate, Math.min(maxTranslate, state.currentTranslate));
 
-                setPosition(worksInnerId);
+                state.animationID = requestAnimationFrame(() => {
+                    worksInner.style.transform = `translateX(${state.currentTranslate}px)`;
+                });
             });
 
             worksInner.addEventListener('touchend', () => {
                 const state = carouselStates[worksInnerId];
                 if (!state.isDragging) return;
                 state.isDragging = false;
+                cancelAnimationFrame(state.animationID);
 
                 // Включаем transition для плавного завершения
-                worksInner.style.transition = 'transform 0.3s ease-out';
+                worksInner.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
 
                 // Применяем инерцию, если скорость достаточно высока
                 if (Math.abs(state.velocity) > 0.2) {
@@ -1143,14 +1147,72 @@
                     const maxTranslate = 0;
                     const minTranslate = -getMaxTranslate(worksInnerId);
                     state.currentTranslate = Math.max(minTranslate, Math.min(maxTranslate, state.currentTranslate));
-
-                    setPosition(worksInnerId);
                 }
 
                 // Корректируем позицию после инерции
-                setTimeout(() => {
-                    snapToNearestItem(worksInnerId);
-                }, 300);
+                snapToNearestItem(worksInnerId);
+            });
+
+            // Mouse events для десктопа
+            worksInner.addEventListener('mousedown', (e) => {
+                const state = carouselStates[worksInnerId];
+                state.isDragging = true;
+                state.startPos = e.clientX;
+                state.prevTranslate = state.currentTranslate;
+                state.lastPos = state.startPos;
+                state.lastTime = performance.now();
+                state.velocity = 0;
+
+                worksInner.style.transition = 'none';
+                cancelAnimationFrame(state.animationID);
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                const state = carouselStates[worksInnerId];
+                if (!state.isDragging) return;
+
+                const currentPos = e.clientX;
+                const currentTime = performance.now();
+                const deltaTime = currentTime - state.lastTime;
+
+                if (deltaTime > 0) {
+                    state.velocity = (currentPos - state.lastPos) / deltaTime;
+                    state.lastPos = currentPos;
+                    state.lastTime = currentTime;
+                }
+
+                state.currentTranslate = state.prevTranslate + currentPos - state.startPos;
+
+                const maxTranslate = 0;
+                const minTranslate = -getMaxTranslate(worksInnerId);
+                state.currentTranslate = Math.max(minTranslate, Math.min(maxTranslate, state.currentTranslate));
+
+                state.animationID = requestAnimationFrame(() => {
+                    worksInner.style.transform = `translateX(${state.currentTranslate}px)`;
+                });
+            });
+
+            document.addEventListener('mouseup', () => {
+                const state = carouselStates[worksInnerId];
+                if (!state.isDragging) return;
+                state.isDragging = false;
+                cancelAnimationFrame(state.animationID);
+
+                worksInner.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+
+                if (Math.abs(state.velocity) > 0.2) {
+                    const direction = state.velocity > 0 ? -1 : 1;
+                    const distance = Math.min(200, Math.abs(state.velocity * 200));
+
+                    state.currentTranslate += distance * direction;
+
+                    const maxTranslate = 0;
+                    const minTranslate = -getMaxTranslate(worksInnerId);
+                    state.currentTranslate = Math.max(minTranslate, Math.min(maxTranslate, state.currentTranslate));
+                }
+
+                snapToNearestItem(worksInnerId);
             });
 
             // Функция для привязки к ближайшему элементу
@@ -1169,10 +1231,12 @@
                 state.currentIndex = Math.max(0, Math.min(maxIndex, newIndex));
                 state.currentTranslate = -state.currentIndex * itemWidth;
 
-                setPosition(worksInnerId);
+                worksInner.style.transform = `translateX(${state.currentTranslate}px)`;
                 updateCarouselControls(worksInnerId);
             }
         }
+
+
 
         // Функция для обновления состояния кнопок управления
         function updateCarouselControls(worksInnerId) {
@@ -1269,32 +1333,18 @@
             const visibleItems = getVisibleItemsCount(worksInnerId);
             const maxTranslate = -(items.length - visibleItems) * itemWidth;
 
-            // Проверяем, не достигли ли мы конца
-            if (state.currentTranslate <= maxTranslate) {
-                return; // Уже в конце, ничего не делаем
-            }
+            if (state.currentTranslate <= maxTranslate) return;
 
             state.currentIndex = Math.min(state.currentIndex + step, items.length - visibleItems);
             state.currentTranslate = -state.currentIndex * itemWidth;
 
-            // Для мобильных устройств проверяем, не выходим ли за пределы
-            if (window.innerWidth <= 768) {
-                const containerWidth = worksInner.parentElement.offsetWidth;
-                const contentWidth = items.length * itemWidth;
+            worksInner.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            worksInner.style.transform = `translateX(${state.currentTranslate}px)`;
 
-                if (contentWidth <= containerWidth) {
-                    // Все элементы помещаются, не нужно прокручивать
-                    state.currentIndex = 0;
-                    state.currentTranslate = 0;
-                } else {
-                    // Проверяем, не вышли ли за пределы
-                    state.currentTranslate = Math.max(maxTranslate, state.currentTranslate);
-                }
-            }
-
-            worksInner.style.transition = 'transform 0.5s ease';
-            setPosition(worksInnerId);
-            updateCarouselControls(worksInnerId);
+            // Обновляем состояние кнопок после завершения анимации
+            setTimeout(() => {
+                updateCarouselControls(worksInnerId);
+            }, 500);
         }
 
         function prevWork(worksInnerId, step = 1) {
@@ -1310,9 +1360,12 @@
             state.currentIndex = Math.max(state.currentIndex - step, 0);
             state.currentTranslate = -state.currentIndex * itemWidth;
 
-            worksInner.style.transition = 'transform 0.5s ease';
-            setPosition(worksInnerId);
-            updateCarouselControls(worksInnerId);
+            worksInner.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            worksInner.style.transform = `translateX(${state.currentTranslate}px)`;
+
+            setTimeout(() => {
+                updateCarouselControls(worksInnerId);
+            }, 500);
         }
 
         // Modal Functions

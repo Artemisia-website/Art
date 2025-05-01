@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artemisia</title>
+    <link rel="icon" href="https://i.postimg.cc/zXXhVbHv/11.png" type="image/x-icon">
+    <link rel="stylesheet" href="../Artist.css">
+</head>
+
+<body>
+    <!-- Header с поисковой строкой -->
+    <header>
+        <div class="header-left">
+            <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <img src="https://i.postimg.cc/hjBzgfqS/1.png" alt="Логотип" class="logo">
+        </div>
+
+        <div class="search-container" id="searchContainer">
+            <div class="search-box">
+                <div class="search-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#aaa" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" />
+                    </svg>
+                </div>
+                <input type="text" id="searchInput" placeholder="Поиск художников..." autocomplete="off">
+                <button class="search-btn" onclick="searchArtists()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="#262626" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+
+        <button class="mobile-search-btn" id="mobileSearchBtn" onclick="toggleSearch()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z" />
+            </svg>
+        </button>
+        <div class="search-backdrop" id="searchBackdrop" onclick="toggleSearch()"></div>
+    </header>
+
+    <!-- Menu Drawer -->
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+    <div class="drawer" id="drawer">
+        <ul class="menu">
+            <li><a href="../index.html">
+                    <img src="https://i.postimg.cc/6p8Gfk0N/home.png" alt="Главная">
+                    Главная
+                </a>
+            </li>
+
+            <li>
+                <a href="Artist.html">
+                    <img src="https://i.postimg.cc/MGRMh1NP/man-14816778.png" alt="Художники">
+                    Художники
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="has-submenu" onclick="toggleSubmenu(event)">
+                    <img src="https://i.postimg.cc/85mFCN1L/mobile-shopping.png" alt="">
+                    Услуги
+                </a>
+
+                <ul class="submenu">
+                    <li>
+                        <a href="Services.html#Commission" class="submenu-link" onclick="openTabByLink('Commission')">
+                            COMMISSION ART
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Services.html#Yunchy" class="submenu-link" onclick="openTabByLink('Yunchy')">
+                            YCH
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Services.html#art" class="submenu-link" onclick="openTabByLink('art')">
+                            ADOPT
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="#">
+                    <img src="https://i.postimg.cc/bYRbyHJ4/draw.png" alt="">
+                    Комиксы
+                </a>
+            </li>
+
+            <li class="separator-menu"></li>
+
+            <li><a href="AboutUs.html#about-site">
+                    Подробности о сайте
+                </a>
+            </li>
+
+            <li><a href="AboutUs.html#publish-work">
+                    Опубликовать работу
+                </a>
+            </li>
+
+            <li><a href="AboutUs.html#guarantees">
+                    Гаранты
+                </a>
+            </li>
+
+            <li class="separator-menu"></li>
+
+            <li>
+                <a href="#" class="has-submenu" onclick="toggleSubmenu(event)">
+                    <img src="https://i.postimg.cc/sDXB3kbZ/image.png" alt="">
+                    Документы
+                </a>
+                <ul class="submenu">
+                    <li><a href="Document.html#user-agreement" class="submenu-link">Соглашение</a></li>
+                    <li><a href="Document.html#usage-rules" class="submenu-link">Правила использования</a></li>
+                    <li><a href="Document.html#guaranteed-deals" class="submenu-link">Гарантийные сделки</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Баннер -->
+    <section>
+        <div class="banner">
+            <img src="https://i.postimg.cc/DfSNsVrN/2.png" alt="Баннер">
+        </div>
+        <div class="black-stripe"></div>
+    </section>
+
+    <!-- Фильтры -->
+    <section>
+        <div class="filters-container">
+            <button class="filters-button" onclick="toggleFilters(event)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 21V14" stroke="currentColor" stroke-width="2" />
+                    <path d="M4 10V3" stroke="currentColor" stroke-width="2" />
+                    <path d="M12 21V12" stroke="currentColor" stroke-width="2" />
+                    <path d="M12 8V3" stroke="currentColor" stroke-width="2" />
+                    <path d="M20 21V16" stroke="currentColor" stroke-width="2" />
+                    <path d="M20 12V3" stroke="currentColor" stroke-width="2" />
+                    <path d="M1 14H7" stroke="currentColor" stroke-width="2" />
+                    <path d="M9 8H15" stroke="currentColor" stroke-width="2" />
+                    <path d="M17 16H23" stroke="currentColor" stroke-width="2" />
+                </svg>
+                Фильтры
+            </button>
+            <div class="filters-dropdown" id="filtersDropdown">
+                <a href="#" onclick="applyFilter('all', event)" class="active-filter">Все стили</a>
+                <a href="#" onclick="applyFilter('prem', event)">Prem Artist</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Художники -->
+    <section>
+
+        <!-- Алексия -->
+        <section id="Alexia">
+            <section class="profile-section" data-style="Графический дизайн">
+                <img src="https://i.postimg.cc/K81gkwBL/photo-5226705699080367487-x.jpg" alt="Аватар" class="avatar">
+                <div class="profile-info">
+                    <h1>Алексия</h1>
+                    <a href="https://t.me/Ha0ruka" class="profile-link">
+                        @Ha0ruka
+                        <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram" class="profile-link-icon">
+                    </a>
+                    <p>Стиль: Графический дизайн</p>
+                    <div class="social-links">
+                        <a href="https://t.me/A0lexyaa0" class="social-link" target="_blank" title="Telegram">
+                            <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram" class="social-icon">
+                        </a>
+
+                    </div>
+                </div>
+            </section>
+
+            <h2 class="favorite-works">Публикации автора</h2>
+            <div class="works-carousel" id="artist1Carousel">
+                <div class="works-inner" id="artist1Works">
+                    <img src="https://i.postimg.cc/xTxzdnJn/photo-5226705699080367474-y.jpg" class="work-thumb-1"
+                        alt="">
+                    <img src="https://i.postimg.cc/pVBjgDP9/photo-5226705699080367475-y.jpg" class="work-thumb-2"
+                        alt="">
+                    <img src="https://i.postimg.cc/d3Jyh0jt/photo-5226705699080367476-y.jpg" class="work-thumb-1"
+                        alt="">
+                    <img src="https://i.postimg.cc/5NNz16ts/photo-5226705699080367477-y.jpg" class="work-thumb-2"
+                        alt="">
+                    <img src="https://i.postimg.cc/J0KBZWp3/photo-5226705699080367478-y.jpg" class="work-thumb-2"
+                        alt="">
+                    <img src="https://i.postimg.cc/13bVpBrd/photo-5226705699080367485-y.jpg" class="work-thumb-2"
+                        alt="">
+                    <img src="https://i.postimg.cc/K81gkwBL/photo-5226705699080367487-x.jpg" class="work-thumb-2"
+                        alt="">
+
+                </div>
+                <button class="works-control prev" onclick="prevWork('artist1Works')">&#10094;</button>
+                <button class="works-control next" onclick="nextWork('artist1Works')">&#10095;</button>
+            </div>
+            <button class="show-works-btn" onclick="openModal('modal1')">Ознакомиться со всеми работами</button>
+
+            <!-- Modal -->
+            <div id="modal1" class="modal">
+                <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
+                <div class="modal-header">
+                    <h2>Галерея работ</h2>
+                </div>
+                <div class="modal-content">
+                    <img src="https://i.postimg.cc/xTxzdnJn/photo-5226705699080367474-y.jpg" class="modal-img" alt="">
+                    <img src="https://i.postimg.cc/pVBjgDP9/photo-5226705699080367475-y.jpg" class="modal-img" alt="">
+                    <img src="https://i.postimg.cc/d3Jyh0jt/photo-5226705699080367476-y.jpg" class="modal-img" alt="">
+                    <img src="https://i.postimg.cc/5NNz16ts/photo-5226705699080367477-y.jpg" class="modal-img" alt="">
+                    <img src="https://i.postimg.cc/J0KBZWp3/photo-5226705699080367478-y.jpg" class="modal-img" alt="">
+                    <img src="https://i.postimg.cc/13bVpBrd/photo-5226705699080367485-y.jpg" class="modal-img" alt="">
+                    <img src="https://i.postimg.cc/K81gkwBL/photo-5226705699080367487-x.jpg" class="modal-img" alt="">
+
+
+                </div>
+            </div>
+        </section>
+
+      
+
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="image-close-btn" onclick="closeImageModal()">&times;</span>
+        <div class="image-modal-content">
+            <img id="expandedImg" class="image-modal-img" src="" alt="Expanded Image">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <a href="../index.html" class="footer-logo-link">
+                    <img src="https://i.postimg.cc/hjBzgfqS/1.png" alt="Artemisia" class="footer-logo">
+                </a>
+            </div>
+
+            <div class="footer-links">
+                <a href="AboutUs.html#about-site" class="footer-link">Подробности о сайте</a>
+                <a href="https://t.me/Artemisia_publication_bot" class="footer-link">Опубликовать работу</a>
+                <a href="https://t.me/Gg00Se" class="footer-link">Связь с гарантом</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="update-text">
+                Следите за обновлениями
+                <a href="https://t.me/Artemisia_website" class="update-link" target="_blank">@Artemisia</a>
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- Стрлека вверх -->
+    <div id="backToTopBtn" class="back-to-top-btn" onclick="scrollToTop()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+        </svg>
+    </div>
+
+    <script>
+        // Menu Functions
+        function toggleMenu() {
+            const drawer = document.getElementById('drawer');
+            const overlay = document.getElementById('overlay');
+            const menuIcon = document.getElementById('menuIcon');
+            const body = document.body;
+            const searchInput = document.getElementById('searchInput');
+
+            // Сохраняем позицию прокрутки перед открытием
+            if (!body.classList.contains('menu-open')) {
+                body.style.top = `-${window.scrollY}px`;
+            }
+
+            drawer.classList.toggle('open');
+            overlay.classList.toggle('active');
+            menuIcon.classList.toggle('active');
+            body.classList.toggle('menu-open');
+            searchInput.disabled = body.classList.contains('menu-open');
+
+            // Восстанавливаем позицию прокрутки при закрытии
+            if (!body.classList.contains('menu-open')) {
+                const scrollY = parseInt(body.style.top || '0');
+                body.style.top = '';
+                window.scrollTo(0, -scrollY);
+            }
+        }
+
+        function closeMenu() {
+            const drawer = document.getElementById('drawer');
+            const overlay = document.getElementById('overlay');
+            const menuIcon = document.getElementById('menuIcon');
+            const body = document.body;
+
+            drawer.classList.remove('open');
+            overlay.classList.remove('active');
+            menuIcon.classList.remove('active');
+            body.classList.remove('menu-open');
+        }
+
+        // Toggle submenus
+        function toggleSubmenu(event) {
+            event.preventDefault();
+            const link = event.currentTarget;
+            const submenu = link.nextElementSibling;
+
+            // Close all other submenus first
+            document.querySelectorAll('.submenu').forEach(menu => {
+                if (menu !== submenu) {
+                    menu.classList.remove('active');
+                    menu.previousElementSibling.classList.remove('active');
+                }
+            });
+
+            // Toggle current submenu
+            link.classList.toggle('active');
+            submenu.classList.toggle('active');
+        }
+
+        // Close menu when clicking on overlay
+        document.getElementById('overlay').addEventListener('click', closeMenu);
+
+        // New Search Functionality
+        function toggleSearch() {
+            const searchContainer = document.getElementById('searchContainer');
+            const searchBackdrop = document.getElementById('searchBackdrop');
+            const isActive = searchContainer.classList.contains('active');
+
+            if (isActive) {
+                searchContainer.classList.remove('active');
+                searchBackdrop.classList.remove('active');
+                document.getElementById('searchResults').classList.remove('active');
+                document.getElementById('searchInput').value = '';
+                document.body.style.overflow = 'auto';
+            } else {
+                searchContainer.classList.add('active');
+                searchBackdrop.classList.add('active');
+                document.getElementById('searchInput').focus();
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Close menu if open
+            if (document.getElementById('drawer').classList.contains('open')) {
+                toggleMenu();
+            }
+        }
+
+        function searchArtists() {
+            const searchText = document.getElementById('searchInput').value.trim().toLowerCase();
+            const resultsContainer = document.getElementById('searchResults');
+
+            if (!searchText) {
+                resultsContainer.innerHTML = '<div class="no-results">Введите запрос для поиска</div>';
+                resultsContainer.classList.add('active');
+                return;
+            }
+
+            const artists = document.querySelectorAll('.profile-section');
+            let found = false;
+            resultsContainer.innerHTML = '';
+
+            artists.forEach(artist => {
+                const artistName = artist.querySelector('h1').textContent.toLowerCase();
+                const artistStyle = artist.querySelector('p').textContent.toLowerCase();
+                const artistLink = artist.querySelector('.profile-link').textContent.toLowerCase();
+                const artistAvatar = artist.querySelector('.avatar').src;
+
+                if (artistName.includes(searchText) || artistStyle.includes(searchText) || artistLink.includes(searchText)) {
+                    found = true;
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'search-result-item';
+
+                    resultItem.innerHTML = `
+                        <img src="${artistAvatar}" alt="${artistName}">
+                        <div class="info">
+                            <div class="name">${artist.querySelector('h1').textContent}</div>
+                            <div class="style">${artist.querySelector('p').textContent}</div>
+                        </div>
+                    `;
+
+                    resultItem.onclick = () => {
+                        document.getElementById('searchInput').value = '';
+                        scrollToArtist(artist);
+                        toggleSearch();
+                    };
+                    resultsContainer.appendChild(resultItem);
+                }
+            });
+
+            if (!found) {
+                resultsContainer.innerHTML = '<div class="no-results">Ничего не найдено</div>';
+            }
+            resultsContainer.classList.add('active');
+        }
+
+        // Highlight text
+        function highlightText(element, searchText) {
+            const text = element.textContent;
+            const regex = new RegExp(`(${searchText})`, 'gi');
+            element.innerHTML = text.replace(regex, match =>
+                `<span class="highlight">${match}</span>`
+            );
+        }
+
+        // Обновленная функция прокрутки к художнику
+        function scrollToArtist(artist) {
+            // Удаляем предыдущие подсветки
+            document.querySelectorAll('.artist-highlight').forEach(el => {
+                el.classList.remove('artist-highlight');
+            });
+
+            // Добавляем подсветку
+            artist.classList.add('artist-highlight');
+
+            // Прокручиваем плавно к элементу с учетом хедера
+            const yOffset = -80;
+            const y = artist.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+            window.scrollTo({
+                top: y,
+                behavior: 'smooth'
+            });
+
+            // Убираем подсветку через 3 секунды
+            setTimeout(() => {
+                artist.classList.remove('artist-highlight');
+            }, 3000);
+
+            // Упрощенная обработка прерывания прокрутки
+            const handleInterrupt = () => {
+                artist.classList.remove('artist-highlight');
+            };
+
+            // Добавляем однократный обработчик
+            window.addEventListener('scroll', handleInterrupt, {
+                once: true,
+                passive: true // Оптимизация для плавной прокрутки
+            });
+
+            // Гарантируем восстановление скролла
+            setTimeout(() => {
+                document.body.style.overflow = 'auto';
+                document.body.style.position = 'static';
+            }, 500);
+        }
+
+        // Обновленный обработчик клика в результатах поиска
+        function setupSearchResults() {
+            document.querySelectorAll('.search-result-item').forEach(item => {
+                item.onclick = (e) => {
+                    e.preventDefault();
+                    const artist = document.querySelector(
+                        `.profile-section:has([alt="${item.querySelector('img').alt}"])`
+                    );
+
+                    document.getElementById('searchInput').value = '';
+                    toggleSearch();
+
+                    setTimeout(() => {
+                        if (artist) {
+                            scrollToArtist(artist);
+
+                            // Обработчик прерывания прокрутки
+                            const handleInterrupt = () => {
+                                artist.classList.remove('artist-highlight');
+                                window.removeEventListener('scroll', handleInterrupt);
+                            };
+                            window.addEventListener('scroll', handleInterrupt, { once: true });
+                        }
+                    }, 100);
+                };
+            });
+        }
+
+        // Search on Enter key
+        document.getElementById('searchInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                searchArtists();
+            }
+        });
+
+        // Real-time search on input
+        document.getElementById('searchInput').addEventListener('input', function () {
+            if (this.value.length > 0) {
+                searchArtists();
+            } else {
+                document.getElementById('searchResults').classList.remove('active');
+            }
+        });
+
+        // Close search when clicking outside (desktop)
+        document.addEventListener('click', function (e) {
+            const searchContainer = document.getElementById('searchContainer');
+            const searchResults = document.getElementById('searchResults');
+            const searchInput = document.getElementById('searchInput');
+            const mobileSearchBtn = document.getElementById('mobileSearchBtn');
+
+            if (!searchContainer.contains(e.target) &&
+                e.target !== mobileSearchBtn &&
+                !searchResults.contains(e.target)) {
+                searchResults.classList.remove('active');
+            }
+        });
+
+        // Close search when scrolling on mobile
+        window.addEventListener('scroll', function () {
+            if (window.innerWidth <= 768 &&
+                document.getElementById('searchContainer').classList.contains('active')) {
+                toggleSearch();
+            }
+        });
+
+        // Filters Functionality
+        function initFilters() {
+            const styles = new Set();
+            const filterDropdown = document.getElementById('filtersDropdown');
+
+            // Collect all artist styles
+            document.querySelectorAll('.profile-section').forEach(section => {
+                const style = section.getAttribute('data-style');
+                if (style) styles.add(style);
+            });
+
+            // Clear existing filters
+            filterDropdown.innerHTML = '';
+
+            // Add "All" button
+            const allItem = document.createElement('a');
+            allItem.href = '#';
+            allItem.textContent = 'Все стили';
+            allItem.onclick = (e) => {
+                applyFilter('all', e);
+                updateActiveFilter(e.target);
+            };
+            filterDropdown.appendChild(allItem);
+
+            // Add "Prem Artist" filter
+            const premItem = document.createElement('a');
+            premItem.href = '#';
+            premItem.textContent = 'Prem Artist';
+            premItem.onclick = (e) => {
+                applyFilter('prem', e);
+                updateActiveFilter(e.target);
+            };
+            filterDropdown.appendChild(premItem);
+
+            // Add filters for each style
+            styles.forEach(style => {
+                const item = document.createElement('a');
+                item.href = '#';
+                item.textContent = style;
+                item.onclick = (e) => {
+                    applyFilter(style, e);
+                    updateActiveFilter(e.target);
+                };
+                filterDropdown.appendChild(item);
+            });
+        }
+
+        function updateActiveFilter(clickedElement) {
+            document.querySelectorAll('.filters-dropdown a').forEach(a => {
+                a.classList.remove('active-filter');
+            });
+            clickedElement.classList.add('active-filter');
+        }
+
+
+
+        function getNextElements(element) {
+            const elements = [];
+            let next = element.nextElementSibling;
+
+            while (next) {
+                if (next.classList.contains('favorite-works') ||
+                    next.classList.contains('works-carousel') ||
+                    next.classList.contains('show-works-btn')) {
+                    elements.push(next);
+                } else if (next.classList.contains('profile-section')) {
+                    break;
+                }
+                next = next.nextElementSibling;
+            }
+
+            return elements;
+        }
+
+        function toggleFilters(event) {
+            event.stopPropagation();
+            const filtersDropdown = document.getElementById('filtersDropdown');
+            filtersDropdown.classList.toggle('active');
+            document.querySelector('.filters-button').classList.toggle('active');
+
+            if (filtersDropdown.classList.contains('active')) {
+                document.addEventListener('click', closeFiltersOnClickOutside);
+            } else {
+                document.removeEventListener('click', closeFiltersOnClickOutside);
+            }
+        }
+
+        function closeFiltersOnClickOutside(event) {
+            const filtersContainer = document.querySelector('.filters-container');
+            if (!filtersContainer.contains(event.target)) {
+                document.getElementById('filtersDropdown').classList.remove('active');
+                document.querySelector('.filters-button').classList.remove('active');
+                document.removeEventListener('click', closeFiltersOnClickOutside);
+            }
+        }
+
+        // Carousel Functionality
+        const carouselStates = {};
+
+        function initCarousel(worksInnerId) {
+            if (!carouselStates[worksInnerId]) {
+                carouselStates[worksInnerId] = {
+                    currentTranslate: 0,
+                    prevTranslate: 0,
+                    isDragging: false,
+                    startPos: 0,
+                    animationID: 0
+                };
+            }
+
+            const worksInner = document.getElementById(worksInnerId);
+            const works = worksInner.querySelectorAll('.work-thumb, .work-thumb-1, .work-thumb-2, .work-thumb-3');
+
+            // Add event handlers
+            worksInner.addEventListener('mousedown', (e) => {
+                const state = carouselStates[worksInnerId];
+                state.isDragging = true;
+                state.startPos = e.clientX;
+                state.prevTranslate = state.currentTranslate;
+                state.animationID = requestAnimationFrame(() => animation(worksInnerId));
+                worksInner.style.cursor = 'grabbing';
+                worksInner.style.transition = 'none';
+            });
+
+            window.addEventListener('mousemove', (e) => {
+                const state = carouselStates[worksInnerId];
+                if (!state.isDragging) return;
+                const currentPosition = e.clientX;
+                state.currentTranslate = state.prevTranslate + currentPosition - state.startPos;
+            });
+
+            window.addEventListener('mouseup', () => {
+                const state = carouselStates[worksInnerId];
+                if (!state.isDragging) return;
+                state.isDragging = false;
+                cancelAnimationFrame(state.animationID);
+                worksInner.style.cursor = 'grab';
+
+                const movedBy = state.currentTranslate - state.prevTranslate;
+                const visibleWorks = getVisibleWorksCount(worksInnerId);
+
+                if (movedBy < -100) nextWork(worksInnerId, visibleWorks);
+                else if (movedBy > 100) prevWork(worksInnerId, visibleWorks);
+                else setPosition(worksInnerId);
+
+                worksInner.style.transition = 'transform 0.5s ease';
+            });
+
+            // Touch events
+            worksInner.addEventListener('touchstart', (e) => {
+                const state = carouselStates[worksInnerId];
+                state.isDragging = true;
+                state.startPos = e.touches[0].clientX;
+                state.prevTranslate = state.currentTranslate;
+                state.animationID = requestAnimationFrame(() => animation(worksInnerId));
+                worksInner.style.transition = 'none';
+            });
+
+            window.addEventListener('touchmove', (e) => {
+                const state = carouselStates[worksInnerId];
+                if (!state.isDragging) return;
+
+                const currentPosition = e.touches[0].clientX;
+                const newTranslate = state.prevTranslate + currentPosition - state.startPos;
+
+                // Для мобильных устройств ограничиваем перетаскивание
+                if (window.innerWidth <= 768) {
+                    const totalWorksWidth = Array.from(works).reduce((sum, work) => sum + work.offsetWidth + 35, 0);
+                    const containerWidth = worksInner.parentElement.offsetWidth;
+                    const maxTranslate = -(totalWorksWidth - containerWidth);
+
+                    // Ограничиваем значение newTranslate между 0 и maxTranslate
+                    state.currentTranslate = Math.max(Math.min(newTranslate, 0), maxTranslate);
+                } else {
+                    state.currentTranslate = newTranslate;
+                }
+            });
+
+            window.addEventListener('touchend', () => {
+                const state = carouselStates[worksInnerId];
+                if (!state.isDragging) return;
+                state.isDragging = false;
+                cancelAnimationFrame(state.animationID);
+
+                const movedBy = state.currentTranslate - state.prevTranslate;
+                const visibleWorks = getVisibleWorksCount(worksInnerId);
+
+                if (movedBy < -100) nextWork(worksInnerId, visibleWorks);
+                else if (movedBy > 100) prevWork(worksInnerId, visibleWorks);
+                else setPosition(worksInnerId);
+
+                worksInner.style.transition = 'transform 0.5s ease';
+            });
+        }
+
+        function animation(worksInnerId) {
+            setPosition(worksInnerId);
+            const state = carouselStates[worksInnerId];
+            if (state.isDragging) requestAnimationFrame(() => animation(worksInnerId));
+        }
+
+        function setPosition(worksInnerId) {
+            const state = carouselStates[worksInnerId];
+            const worksInner = document.getElementById(worksInnerId);
+            worksInner.style.transform = `translateX(${state.currentTranslate}px)`;
+        }
+
+        function getVisibleWorksCount(worksInnerId) {
+            const worksInner = document.getElementById(worksInnerId);
+            const works = worksInner.querySelectorAll('.work-thumb, .work-thumb-1, .work-thumb-2, .work-thumb-3');
+            if (works.length === 0) return 1;
+
+            const containerWidth = worksInner.parentElement.offsetWidth;
+            const workWidth = works[0].offsetWidth + 35; // Work width + gap
+            return Math.floor(containerWidth / workWidth);
+        }
+
+        function nextWork(worksInnerId, step = null) {
+            const worksInner = document.getElementById(worksInnerId);
+            const works = worksInner.querySelectorAll('.work-thumb, .work-thumb-1, .work-thumb-2, .work-thumb-3');
+            const state = carouselStates[worksInnerId];
+
+            if (step === null) step = getVisibleWorksCount(worksInnerId);
+
+            // Получаем ширину контейнера и общую ширину всех работ
+            const containerWidth = worksInner.parentElement.offsetWidth;
+            const totalWorksWidth = Array.from(works).reduce((sum, work) => sum + work.offsetWidth + 35, 0);
+
+            // Рассчитываем максимальное смещение (чтобы последний элемент был виден)
+            const maxPosition = containerWidth - totalWorksWidth - 35; // Добавляем отступ для последнего элемента
+
+            // Рассчитываем новое положение
+            const newPosition = state.currentTranslate - (step * (works[0].offsetWidth + 35));
+
+            // Для мобильных устройств делаем дополнительную проверку
+            if (window.innerWidth <= 768) {
+                // Проверяем, не выходим ли мы за пределы
+                if (Math.abs(newPosition) > (totalWorksWidth - containerWidth)) {
+                    // Если пытаемся пролистать дальше последнего элемента, останавливаемся
+                    state.currentTranslate = -(totalWorksWidth - containerWidth);
+                } else {
+                    state.currentTranslate = newPosition;
+                }
+            } else {
+                // Для десктопной версии оставляем прежнюю логику
+                state.currentTranslate = Math.max(newPosition, maxPosition);
+            }
+
+            worksInner.style.transition = 'transform 0.5s ease';
+            setPosition(worksInnerId);
+        }
+
+        function prevWork(worksInnerId, step = null) {
+            const worksInner = document.getElementById(worksInnerId);
+            const works = worksInner.querySelectorAll('.work-thumb, .work-thumb-1, .work-thumb-2, .work-thumb-3');
+            const state = carouselStates[worksInnerId];
+
+            if (step === null) step = getVisibleWorksCount(worksInnerId);
+
+            // Рассчитываем новое положение
+            const newPosition = state.currentTranslate + (step * (works[0].offsetWidth + 35));
+
+            // Ограничиваем смещение, чтобы не выйти за пределы (не больше 0)
+            state.currentTranslate = Math.min(newPosition, 0);
+
+            worksInner.style.transition = 'transform 0.5s ease';
+            setPosition(worksInnerId);
+        }
+
+        // Modal Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Full Image Modal Functions
+        function openImageModal(imgSrc) {
+            const imageModal = document.getElementById('imageModal');
+            const expandedImg = document.getElementById('expandedImg');
+
+            expandedImg.src = imgSrc;
+            imageModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            document.getElementById('imageModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function (event) {
+            document.querySelectorAll('.modal').forEach(modal => {
+                if (event.target == modal) {
+                    closeModal(modal.id);
+                }
+            });
+
+            if (event.target === document.getElementById('imageModal')) {
+                closeImageModal();
+            }
+        }
+
+        // Close modals with ESC key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                document.querySelectorAll('.modal').forEach(modal => {
+                    if (modal.style.display === 'block') {
+                        closeModal(modal.id);
+                    }
+                });
+
+                if (document.getElementById('imageModal').style.display === 'block') {
+                    closeImageModal();
+                }
+            }
+        });
+
+        // Click on works in carousel opens corresponding modal
+        document.querySelectorAll('.work-thumb, .work-thumb-1, .work-thumb-2, .work-thumb-3').forEach(thumb => {
+            thumb.addEventListener('click', function (e) {
+                e.stopPropagation();
+                openImageModal(this.src);
+            });
+        });
+
+        // Click on images in artist modals
+        document.querySelectorAll('.modal-img').forEach(img => {
+            img.addEventListener('click', function (e) {
+                e.stopPropagation();
+                openImageModal(this.src);
+            });
+        });
+
+        // Back to Top Function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide back to top button on scroll
+        window.addEventListener('scroll', function () {
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+
+
+
+        // Function to open tab by link
+        function openTabByLink(tabId) {
+            // This function would be implemented in the Services.html page
+            console.log('Opening tab:', tabId);
+        }
+
+        // Добавим этот код в раздел скриптов
+        document.addEventListener('DOMContentLoaded', function () {
+            // Настройка Intersection Observer
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+
+                        // Для модальных изображений
+                        if (entry.target.classList.contains('modal-img')) {
+                            setTimeout(() => {
+                                entry.target.classList.add('visible');
+                            }, 100 * index);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Наблюдаем за всеми элементами
+            document.querySelectorAll('.profile-section, .favorite-works, .works-carousel, .show-works-btn').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Для изображений в модалках
+            document.querySelectorAll('.modal-img').forEach((img, index) => {
+                observer.observe(img);
+            });
+        });
+
+        // Модифицируем функцию фильтрации
+        function applyFilter(selectedStyle, event) {
+            event.preventDefault();
+
+            // Закрываем фильтры после выбора
+            closeFilters();
+
+            document.querySelectorAll('.profile-section').forEach(profile => {
+                const style = profile.getAttribute('data-style');
+                const isPrem = profile.getAttribute('data-prem') === 'true';
+                const nextElements = getNextElements(profile);
+
+                if (selectedStyle === 'all' ||
+                    (selectedStyle === 'prem' && isPrem) ||
+                    (selectedStyle !== 'prem' && style === selectedStyle)) {
+                    profile.classList.remove('hidden');
+                    nextElements.forEach(el => {
+                        el.classList.remove('hidden');
+                        el.style.transitionDelay = '0.2s';
+                    });
+                } else {
+                    profile.classList.add('hidden');
+                    nextElements.forEach(el => el.classList.add('hidden'));
+                }
+            });
+
+            // Smooth scroll to top after applying filter
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function closeFilters() {
+            const filtersDropdown = document.getElementById('filtersDropdown');
+            const filtersButton = document.querySelector('.filters-button');
+
+            filtersDropdown.classList.remove('active');
+            filtersButton.classList.remove('active');
+            document.removeEventListener('click', closeFiltersOnClickOutside);
+        }
+
+        // Обновим функцию для модальных окон
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+
+            // Запуск анимации для изображений
+            setTimeout(() => {
+                modal.querySelectorAll('.modal-img').forEach((img, index) => {
+                    setTimeout(() => img.classList.add('visible'), 50 * index);
+                });
+            }, 100);
+        }
+
+        // Функция для обработки якорных ссылок при загрузке страницы
+        function handleAnchorLinks() {
+            // Проверяем, есть ли якорь в URL
+            if (window.location.hash) {
+                const artistId = window.location.hash.substring(1); // Убираем # из начала
+                const artistSection = document.getElementById(artistId);
+
+                if (artistSection) {
+                    // Прокручиваем к секции художника
+                    setTimeout(() => {
+                        artistSection.scrollIntoView({ behavior: 'smooth' });
+
+                        // Подсвечиваем профиль художника
+                        const profile = artistSection.querySelector('.profile-section');
+                        if (profile) {
+                            profile.classList.add('artist-highlight');
+
+                            // Убираем подсветку через 3 секунды
+                            setTimeout(() => {
+                                profile.classList.remove('artist-highlight');
+                            }, 3000);
+                        }
+                    }, 100);
+                }
+            }
+        }
+
+        // Вызываем функцию при загрузке страницы
+        window.addEventListener('load', handleAnchorLinks);
+
+        // Также обрабатываем изменения hash (если пользователь кликает на якорные ссылки на той же странице)
+        window.addEventListener('hashchange', handleAnchorLinks);
+
+
+    </script>
+
+    <script>
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize carousels for each artist
+            initCarousel('artist1Works');
+          
+
+
+
+
+            // Initialize filters
+            initFilters();
+
+            // Add class to first "All styles" element
+            const firstFilter = document.querySelector('.filters-dropdown a:first-child');
+            if (firstFilter) firstFilter.classList.add('active-filter');
+
+            // Adapt carousels on window resize
+            window.addEventListener('resize', () => {
+                Object.keys(carouselStates).forEach(worksInnerId => {
+                    carouselStates[worksInnerId].currentTranslate = 0;
+                    setPosition(worksInnerId);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

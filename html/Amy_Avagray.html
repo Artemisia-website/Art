@@ -1,130 +1,479 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сайт в разработке</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
-        }
-        
-        .container {
-            max-width: 800px;
-            padding: 40px;
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        h1 {
-            color: #ffc107;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        p {
-            font-size: 1.2rem;
-            color: #616161;
-            margin-bottom: 30px;
-            line-height: 1.6;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .highlight {
-            background-color: #fff9c4;
-            padding: 2px 5px;
-            border-radius: 3px;
-            font-weight: bold;
-        }
-        
-        .construction-icon {
-            font-size: 4rem;
-            color: #ffc107;
-            margin-bottom: 20px;
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-20px);}
-            60% {transform: translateY(-10px);}
-        }
-        
-        .decoration {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background-color: #ffecb3;
-            opacity: 0.3;
-        }
-        
-        .decoration-1 {
-            top: -50px;
-            left: -50px;
-        }
-        
-        .decoration-2 {
-            bottom: -70px;
-            right: -30px;
-            width: 250px;
-            height: 250px;
-        }
-        
-        .progress-bar {
-            height: 8px;
-            background-color: #e0e0e0;
-            border-radius: 4px;
-            margin: 30px 0;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .progress {
-            height: 100%;
-            width: 65%;
-            background-color: #ffc107;
-            border-radius: 4px;
-            animation: progress-animation 2s ease-in-out infinite;
-        }
-        
-        @keyframes progress-animation {
-            0% {width: 60%;}
-            50% {width: 70%;}
-            100% {width: 60%;}
-        }
-    </style>
+    <title>Artemisia - Эми Авагрей</title>
+    <link rel="icon" href="https://i.postimg.cc/zXXhVbHv/11.png" type="image/x-icon">
+    <link rel="stylesheet" href="../Prem.css">
 </head>
+
 <body>
-    <div class="container">
-        <div class="decoration decoration-1"></div>
-        <div class="decoration decoration-2"></div>
-        
-        <div class="construction-icon">🚧</div>
-        <h1>Идёт работа над сайтом</h1>
-        <p>Мы активно трудимся над созданием чего-то <span class="highlight">особенного</span> для вас. Пожалуйста, зайдите позже, когда мы закончим все приготовления.</p>
-        
-        <div class="progress-bar">
-            <div class="progress"></div>
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <img src="https://i.postimg.cc/hjBzgfqS/1.png" alt="Логотип" class="logo">
         </div>
-        
-        <p>Спасибо за ваше терпение и понимание!</p>
+    </header>
+
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <div class="drawer" id="drawer">
+        <ul class="menu">
+            <li><a href="../index.html">
+                    <img src="https://i.postimg.cc/6p8Gfk0N/home.png" alt="Главная">
+                    Главная
+                </a>
+            </li>
+
+            <li>
+                <a href="Artist.html">
+                    <img src="https://i.postimg.cc/MGRMh1NP/man-14816778.png" alt="Художники">
+                    Художники
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="has-submenu" onclick="toggleSubmenu(event)">
+                    <img src="https://i.postimg.cc/85mFCN1L/mobile-shopping.png" alt="">
+                    Услуги
+                </a>
+
+                <ul class="submenu">
+                    <li>
+                        <a href="Services.html#Commission" class="submenu-link" onclick="openTabByLink('Commission')">
+                            COMMISSION ART
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Services.html#Yunchy" class="submenu-link" onclick="openTabByLink('Yunchy')">
+                            YCH
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Services.html#art" class="submenu-link" onclick="openTabByLink('art')">
+                            ADOPT
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="#">
+                    <img src="https://i.postimg.cc/bYRbyHJ4/draw.png" alt="">
+                    Комиксы
+                </a>
+            </li>
+
+            <li class="separator-menu"></li>
+
+            <li><a href="AboutUs.html#about-site">
+                    Подробности о сайте
+                </a>
+            </li>
+
+            <li><a href="AboutUs.html#publish-work">
+                    Опубликовать работу
+                </a>
+            </li>
+
+            <li><a href="AboutUs.html#guarantees">
+                    Гаранты
+                </a>
+            </li>
+
+            <li class="separator-menu"></li>
+
+            <li>
+                <a href="#" class="has-submenu" onclick="toggleSubmenu(event)">
+                    <img src="https://i.postimg.cc/sDXB3kbZ/image.png" alt="">
+                    Документы
+                </a>
+                <ul class="submenu">
+                    <li><a href="Document.html#user-agreement" class="submenu-link">Соглашение</a></li>
+                    <li><a href="Document.html#usage-rules" class="submenu-link">Правила использования</a></li>
+                    <li><a href="Document.html#guaranteed-deals" class="submenu-link">Гарантийные сделки</a></li>
+                </ul>
+            </li>
+        </ul>
     </div>
+
+    <!-- Карточка профиля -->
+    <div class="profile-card">
+        <div class="profile-header" style="background: url('https://i.postimg.cc/X7Cqr6kZ/photo-5244626819490115332-y.jpg') center/cover no-repeat">
+            <div class="header-overlay"></div>
+        </div>
+        <div class="profile-content">
+            <div class="avatar-container">
+                <div class="avatar-border"></div>
+                <img src="https://i.postimg.cc/zB8KjXpP/photo-5244626819490115328-x.jpg" alt="Аватар" class="avatar">
+            </div>
+            <div class="profile-info">
+                <h1 class="profile-name"> Эми Авагрей</h1>
+                <a href="https://t.me/IrumaKirio" class="profile-link">
+                    @IrumaKirio
+                    <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram" class="profile-link-icon">
+                </a>
+                <p class="profile-bio">Стиль: Аниме</p>
+
+                <div class="profile-badges">
+                    <span class="badge experience"><i class="fas fa-hourglass-half"></i> 7 лет опыта</span>
+                    <span class="badge pro"><i class="fas fa-star"></i> Prem Artist</span>
+                </div>
+
+                <div class="social-links">
+                    <!-- Telegram -->
+                    <a href="https://t.me/Amy_Avagre" class="social-link" target="_blank" rel="noopener noreferrer"
+                        aria-label="Telegram">
+                        <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram" width="32" height="32"
+                            loading="lazy" class="social-icon">
+                    </a>
+                    <!-- ТТ -->
+                    <a href="https://www.tiktok.com/@amy_avagre?_t=ZT-8w68M8GnvDi&_r=1" class="social-link"
+                        target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <img src="https://i.postimg.cc/sD6hSj5c/free-icon-video-13670382.png" alt="YouTube" width="32"
+                            height="32" loading="lazy" class="social-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs section -->
+    <div class="tabs-container">
+        <div class="tabs-header">
+            <button class="tab-btn active" onclick="openTab(event, 'tab1')">Работы</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab2')">Обо мне</button>
+           
+        </div>
+
+        <div id="tab1" class="tab-content active">
+            <div class="works-header">
+                <h3>
+                    <i class="fas fa-palette"></i> Мои работы
+                </h3>
+
+            </div>
+
+            <p class="gallery-description">Здесь представлены мои последние работы. Кликните на изображение для
+                просмотра в полном размере.</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openModal('https://i.postimg.cc/2SZzvVNx/photo-5222237842170834041-y.jpg' )">
+                    <img src="https://i.postimg.cc/2SZzvVNx/photo-5222237842170834041-y.jpg" alt="Работа 1">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://i.postimg.cc/kXZJBWz4/photo-5228936625352993699-y.jpg' )">
+                    <img src="https://i.postimg.cc/kXZJBWz4/photo-5228936625352993699-y.jpg" alt="Работа 2">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://i.postimg.cc/Z5YmMCrZ/photo-5228988237974990784-y.jpg' )">
+                    <img src="https://i.postimg.cc/Z5YmMCrZ/photo-5228988237974990784-y.jpg" alt="Работа 3">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://i.postimg.cc/76JwndS2/photo-5222237842170834040-y.jpg')">
+                    <img src="https://i.postimg.cc/76JwndS2/photo-5222237842170834040-y.jpg" alt="Работа 4">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://i.postimg.cc/ZKxZHrvV/photo-5222237842170834044-y.jpg' )">
+                    <img src="https://i.postimg.cc/ZKxZHrvV/photo-5222237842170834044-y.jpg" alt="Работа 5">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://i.postimg.cc/bNhp16rZ/photo-5228988237974990775-y.jpg' )">
+                    <img src="https://i.postimg.cc/bNhp16rZ/photo-5228988237974990775-y.jpg" alt="Работа 6">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://i.postimg.cc/cJbdY0tW/photo-5222237842170834046-y.jpg' )">
+                    <img src="https://i.postimg.cc/cJbdY0tW/photo-5222237842170834046-y.jpg" alt="Работа 7">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://i.postimg.cc/kM876rJr/photo-5228988237974990776-y.jpg')">
+                    <img src="https://i.postimg.cc/kM876rJr/photo-5228988237974990776-y.jpg" alt="Работа 8">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://i.postimg.cc/zvnN9htD/photo-5228988237974990777-y.jpg')">
+                    <img src="https://i.postimg.cc/zvnN9htD/photo-5228988237974990777-y.jpg" alt="Работа 8">
+                </div>
+                <div class="gallery-item" onclick="openModal('https://i.postimg.cc/prNxGCB1/photo-5228988237974990778-y.jpg')">
+                    <img src="https://i.postimg.cc/prNxGCB1/photo-5228988237974990778-y.jpg" alt="Работа 8">
+                </div>
+              
+            </div>
+        </div>
+
+        <div id="tab2" class="tab-content">
+            <strong>°ПРИВЕТСТВУЮ ВСЕХ! В моём уютном уголке 🌟</strong><br>
+            <p>
+                <strong>✨Хобби</strong><br>
+                Йо, меня можете называть Эми Авагрей(。-ω-)ｰ любимая фраза мя на все случаи жизни, спросите почему? Я
+                очень люблю кошек и почти была воспитана ими, а если серьёзно, то я просто многосторонняя личность.
+
+                Из интересов(кроме рисования) занимаюсь вышиванием, бисероплетением, созданием украшений из бусин и
+                смолы, люблю сочинять стихи и учить их. Где то год ходила в театральный кружок, где добилась большого
+                признания и почета со стороны учителей и взрослых. Люблю необычную одежду(в основном стиль лолита) ,
+                готовить и в принципе думать.
+            </p>
+
+            <p><strong>💕Арт</strong><br>
+                Рисованием занимаюсь с самого детства, осознанно начала рисовать где то в 10 лет с тех пор прошло 7
+                лет. 
+                Предыстория: будучи маленькой, на очередном вечернем праздновстве, меня невзначай спросили: "кем я хочу
+                стать,когда вырасту" Как можно понять я гордо произнесла - Художником. Тогда никто не воспринимал
+                высказывания
+                ребенка всерьёз, но те принципы, заложенные во мне еще тогда, были сильнее многих других принципов у
+                давно
+                сформировавшихся людей. Я бы не была художником, если бы тогда не сказала это, но я всегда держу слово и
+                раз
+                сказала это, то мне не быть никем в жизни кроме деятеля искусства. 
+
+                 Я человек медленный, предпочитаю каждый день рисовать, но понемногу. Каждая моя работа мне всегда
+                нравится. Я
+                искренне люблю свое творчество, так как в каждый штрих я вкладываю много времени и сил. Могу часы
+                провести за
+                рисованием не спать и не есть лиш бы изобразить,то что я полностью представила в голове. На мой выбор
+                стиля
+                рисования повлияли многочисленные аниме. Они очень большую роль сыграли не только в этом, но и в том,
+                что я
+                жива, чему я очень рада. 
+            </p>
+
+            <p><strong>🌹Я как человек </strong><br>
+                Сама по себе я складываю впечетление тихого и необшитеного человека. В чем я не могу не согласиться. Но
+                во мне есть и гордость и сила противостоять другим людям. Я люблю обшаться, только, к сожалению, не знаю
+                в какие моменты и что мне надо сказать. Однозначно я очень сильно люблю людей, и это всегда
+                прослеживается в моих репликах. Я рада всегда ответить каждому и помочь если знаю как, ну или
+                предпологаю(можете мне писать и спрашивать совета по рисованию или просто поболтать, хотя тут зависит от
+                времени я часто занята,от вечно прописанного распорядка дня)
+                На этом все, всем пока, спасибо, что прочитали все это, желаю хорошего времени суток❀(*´▽*)❀
+            </p>
+
+        
+        </div>
+
+
+       
+
+    </div>
+
+    <!-- Модальное окно -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" class="modal-image" src="" alt="">
+            <div id="modalCaption" class="modal-caption"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <a href="../index.html" class="footer-logo-link">
+                    <img src="https://i.postimg.cc/hjBzgfqS/1.png" alt="Artemisia" class="footer-logo">
+                </a>
+            </div>
+
+            <div class="footer-links">
+                <a href="AboutUs.html#about-site" class="footer-link">Подробности о сайте</a>
+                <a href="https://t.me/Artemisia_publication_bot" class="footer-link">Опубликовать работу</a>
+                <a href="https://t.me/Gg00Se" class="footer-link">Связь с гарантом</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="update-text">
+                Следите за обновлениями
+                <a href="https://t.me/Artemisia_website" class="update-link" target="_blank">@Artemisia</a>
+            </p>
+        </div>
+    </footer>
+
+    <div id="backToTopBtn" class="back-to-top-btn" onclick="scrollToTop()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+        </svg>
+    </div>
+
+    <script>
+        // Функции для меню и поиска
+        function toggleMenu() {
+            const drawer = document.getElementById('drawer');
+            const overlay = document.getElementById('overlay');
+            const menuIcon = document.getElementById('menuIcon');
+            const body = document.body;
+
+            // Сохраняем текущую позицию прокрутки
+            if (!body.classList.contains('menu-open')) {
+                body.style.top = `-${window.scrollY}px`;
+            }
+
+            drawer.classList.toggle('open');
+            overlay.classList.toggle('active');
+            menuIcon.classList.toggle('active');
+            body.classList.toggle('menu-open');
+
+            // Восстанавливаем позицию прокрутки при закрытии меню
+            if (!body.classList.contains('menu-open')) {
+                const scrollY = parseInt(body.style.top || '0');
+                body.style.top = '';
+                window.scrollTo(0, -scrollY);
+            }
+        }
+
+        function toggleSubmenu(event) {
+            event.preventDefault();
+            const submenu = event.currentTarget.nextElementSibling;
+            submenu.classList.toggle('active');
+            event.currentTarget.classList.toggle('active');
+        }
+
+
+
+        function removeHighlights() {
+            const highlights = document.querySelectorAll('.highlight');
+            highlights.forEach(highlight => {
+                const parent = highlight.parentNode;
+                parent.replaceChild(document.createTextNode(highlight.textContent), highlight);
+                parent.normalize();
+            });
+        }
+
+        function openTabByLink(tabId) {
+            const tab = document.getElementById(tabId);
+            if (tab) {
+                tab.style.display = 'block';
+            }
+        }
+
+        function openTab(evt, tabName) {
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('active');
+            }
+
+            const tabButtons = document.getElementsByClassName('tab-btn');
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove('active');
+            }
+
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        // Функции для модального окна галереи
+        function openModal(imageSrc, caption) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const captionText = document.getElementById('modalCaption');
+
+            modal.style.display = "flex";
+            modalImg.src = imageSrc;
+            captionText.innerHTML = caption;
+            document.body.classList.add('no-scroll');
+
+            // Сброс анимации для нового изображения
+            modalImg.classList.remove('visible');
+            setTimeout(() => {
+                modalImg.classList.add('visible');
+            }, 50);
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = "none";
+            document.body.classList.remove('no-scroll');
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        document.onkeydown = function (evt) {
+            evt = evt || window.event;
+            if (evt.key === "Escape") {
+                closeModal();
+            }
+        };
+
+        // Инициализация - открываем первую вкладку по умолчанию
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('.tab-btn').click();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const showMoreBtn = document.getElementById('showMoreBtn');
+            const additionalReviews = document.getElementById('additionalReviews');
+
+            if (showMoreBtn && additionalReviews) {
+                showMoreBtn.addEventListener('click', function () {
+                    additionalReviews.classList.toggle('expanded');
+                    this.classList.toggle('expanded');
+
+                    // Меняем текст кнопки
+                    if (additionalReviews.classList.contains('expanded')) {
+                        this.innerHTML = '<i class="fas fa-chevron-up"></i> Свернуть отзывы';
+                    } else {
+                        this.innerHTML = '<i class="fas fa-chevron-down"></i> Ещё отзывы';
+                    }
+                });
+            }
+        });
+
+        function openOrderModal(title, artist, price, telegramLink) {
+            window.open(telegramLink, '_blank');
+        }
+
+        // Back to Top Function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide back to top button on scroll
+        window.addEventListener('scroll', function () {
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+
+        // Анимация появления элементов
+        document.addEventListener('DOMContentLoaded', function () {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+
+                        // Для модальных изображений
+                        if (entry.target.classList.contains('modal-img')) {
+                            setTimeout(() => {
+                                entry.target.classList.add('visible');
+                            }, 100 * index);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Наблюдаем за всеми элементами
+            document.querySelectorAll('.profile-card, .tabs-container, .gallery-item, .archive-btn, .anime-section').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Для изображений в модалках
+            document.querySelectorAll('.modal-image').forEach((img, index) => {
+                img.classList.add('modal-img');
+                observer.observe(img);
+            });
+        });
+    </script>
 </body>
+
 </html>

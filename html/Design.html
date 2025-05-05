@@ -67,6 +67,13 @@
             </li>
 
             <li>
+                <a href="Design.html">
+                    <img src="https://i.postimg.cc/t4xNXgTY/free-icon-pen-tablet-4861056.png" alt="Художники">
+                    Дизайнеры
+                </a>
+            </li>
+
+            <li>
                 <a href="#" class="has-submenu" onclick="toggleSubmenu(event)">
                     <img src="https://i.postimg.cc/85mFCN1L/mobile-shopping.png" alt="">
                     Услуги
@@ -166,21 +173,29 @@
     <section>
 
         <!-- Алексия -->
-        <section id="Alexia">
-            <section class="profile-section" data-style="Дизайн">
-                <img src="https://i.postimg.cc/K81gkwBL/photo-5226705699080367487-x.jpg" alt="Аватар" class="avatar">
+        <section id="">
+            <section class="profile-section" data-style="Дизайн" data-prem="true"
+                style="background-image: linear-gradient(to right, rgba(30, 30, 30, 0.85), rgba(30, 30, 30, 0.9)), url('')">
+                <div class="avatar-container" onclick="window.location.href='../'">
+                    <div class="avatar-border"></div>
+                    <img src="https://i.postimg.cc/K81gkwBL/photo-5226705699080367487-x.jpg" alt="Аватар"
+                        class="avatar">
+
+                </div>
+
                 <div class="profile-info">
                     <h1>Алексия</h1>
-                    <a href="https://t.me/Ha0ruka" class="profile-link">
+                    <a href="https://t.me/" class="profile-link">
                         @Ha0ruka
                         <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram" class="profile-link-icon">
                     </a>
-                    <p>Стиль: Дизайн</p>
+                    <p>Специальность: Дизайн </p>
+
+
                     <div class="social-links">
                         <a href="https://t.me/A0lexyaa0" class="social-link" target="_blank" title="Telegram">
                             <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram" class="social-icon">
                         </a>
-
                     </div>
                 </div>
             </section>
@@ -202,14 +217,13 @@
                         alt="">
                     <img src="https://i.postimg.cc/K81gkwBL/photo-5226705699080367487-x.jpg" class="work-thumb-2"
                         alt="">
-
                 </div>
                 <button class="works-control prev" onclick="prevWork('artist1Works')">&#10094;</button>
                 <button class="works-control next" onclick="nextWork('artist1Works')">&#10095;</button>
             </div>
             <button class="show-works-btn" onclick="openModal('modal1')">Ознакомиться со всеми работами</button>
 
-            <!-- Modal -->
+            <!-- Модальное окно для второго художника -->
             <div id="modal1" class="modal">
                 <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
                 <div class="modal-header">
@@ -224,12 +238,14 @@
                     <img src="https://i.postimg.cc/13bVpBrd/photo-5226705699080367485-y.jpg" class="modal-img" alt="">
                     <img src="https://i.postimg.cc/K81gkwBL/photo-5226705699080367487-x.jpg" class="modal-img" alt="">
 
-
                 </div>
             </div>
         </section>
 
-      
+
+
+
+
 
     </section>
 
@@ -1021,7 +1037,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Initialize carousels for each artist
             initCarousel('artist1Works');
-          
+
 
 
 

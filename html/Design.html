@@ -169,11 +169,11 @@
         </div>
     </section>
 
-    <!-- Художники -->
+    <!-- Дизайнеры -->
     <section>
 
         <!-- Алексия -->
-        <section id="">
+        <section id="Alexia">
             <section class="profile-section" data-style="Дизайн" data-prem="true"
                 style="background-image: linear-gradient(to right, rgba(30, 30, 30, 0.85), rgba(30, 30, 30, 0.9)), url('')">
                 <div class="avatar-container" onclick="window.location.href='../'">
@@ -242,7 +242,59 @@
             </div>
         </section>
 
+        <!-- coenabi -->
+        <section id="2">
+            <section class="profile-section" data-style="Веб-дизайн">
+                <img src="https://i.postimg.cc/6Q7fPCjP/photo-5287398650739285319-y.jpg" alt="Аватар" class="avatar">
+                <div class="profile-info">
+                    <h1> coenabi</h1>
+                    <a href="https://t.me/@rayahrr" class="profile-link">
+                        @rayahrr
+                        <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram" class="profile-link-icon">
+                    </a>
+                    <p>Специальность: Веб-дизайн </p>
+                    <div class="social-links">
+                        <a href="https://t.me/coenabi" class="social-link" target="_blank" title="Telegram">
+                            <img src="https://i.postimg.cc/cJXCqTTc/icons8-48.png" alt="Telegram" class="social-icon">
+                        </a>
 
+                    </div>
+                </div>
+            </section>
+
+            <h2 class="favorite-works">Публикации автора</h2>
+            <div class="works-carousel" id="artist2Carousel">
+                <div class="works-inner" id="artist2Works">
+                    <img src="https://i.postimg.cc/bJNXtyz8/photo-5244777448288154711-y.jpg" class="work-thumb-1" alt="">
+                    <img src="https://i.postimg.cc/gjnfggXT/photo-5244777448288154710-y.jpg" class="work-thumb-3" alt="">
+                    <img src="https://i.postimg.cc/YSxK0GBb/photo-5244777448288154712-y.jpg" class="work-thumb-1" alt="">
+                    <img src="https://i.postimg.cc/Bv3fJ5kj/photo-5244777448288154713-y.jpg" class="work-thumb-1" alt="">
+                    <img src="https://i.postimg.cc/Y9X5N59F/photo-5244777448288154714-x.jpg" class="work-thumb-1" alt="">
+                    <img src="https://i.postimg.cc/K8ByXpqX/photo-5244777448288154715-y.jpg" class="work-thumb-1" alt="">
+                   
+                </div>
+                <button class="works-control prev" onclick="prevWork('artist2Works')">&#10094;</button>
+                <button class="works-control next" onclick="nextWork('artist2Works')">&#10095;</button>
+            </div>
+            <button class="show-works-btn" onclick="openModal('modal2')">Ознакомиться со всеми работами</button>
+
+            <!-- Modal -->
+            <div id="modal2" class="modal">
+                <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
+                <div class="modal-header">
+                    <h2>Галерея работ</h2>
+                </div>
+                <div class="modal-content">
+                    <img src="https://i.postimg.cc/bJNXtyz8/photo-5244777448288154711-y.jpg" class="modal-img" alt="">
+                    <img src="https://i.postimg.cc/gjnfggXT/photo-5244777448288154710-y.jpg" class="modal-img" alt="">
+                    <img src="https://i.postimg.cc/YSxK0GBb/photo-5244777448288154712-y.jpg" class="modal-img" alt="">
+                    <img src="https://i.postimg.cc/Bv3fJ5kj/photo-5244777448288154713-y.jpg" class="modal-img" alt="">
+                    <img src="https://i.postimg.cc/Y9X5N59F/photo-5244777448288154714-x.jpg" class="modal-img" alt="">
+                    <img src="https://i.postimg.cc/K8ByXpqX/photo-5244777448288154715-y.jpg" class="modal-img" alt="">
+                   
+                </div>
+            </div>
+        </section>
 
 
 
@@ -1037,6 +1089,8 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Initialize carousels for each artist
             initCarousel('artist1Works');
+            initCarousel('artist2Works');
+
 
 
 

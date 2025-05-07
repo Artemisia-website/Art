@@ -1394,7 +1394,7 @@ body.no-scroll {
 
 @media (max-width: 330px) {
     .anime-section img {
-        max-height: 180px;
+        max-height: 200px;
     }
 
     .anime-section .text h3 {
